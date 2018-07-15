@@ -1,0 +1,17 @@
+﻿@{
+    ViewBag.Title = "About";
+}
+<h2>@ViewBag.Title.</h2>
+
+<h3>@ViewBag.Message</h3>
+<br />
+<p><b>Version:</b> Standard v5.3.3</p>
+<p><b>Released Date:</b> June 2018</p>
+<br />
+<p><b>Licensed To:</b> @Session["_strCurrentFullName"]</p>
+<br />
+<p><b>Provider Details</b></p>
+<p>Name: @Session["SupplierName"]</p>
+<p>Contact No.: @Session["SupplierContact"]</p>
+<p>Email Address: @Session["SupplierEmail"]</p>
+<br />

@@ -1,0 +1,33 @@
+﻿@using Microsoft.AspNet.Identity
+@if (Session["_intCurrentID"] != null)
+{
+
+
+
+    @Html.AntiForgeryToken()
+
+    <ul class="nav navbar-nav navbar-right">
+        
+        <li style="min-width:200px">
+            <img src="@Session["ProfilePic"]" class="img-circle" alt="Cinque Terre" width="40" height="40" style="float:left; margin-top:5px; margin-right:5px;"> 
+            @Html.ActionLink(Session["_strCurrentFullName"].ToString(), "UserUpdateProfile", "Account", routeValues: null, htmlAttributes: new { title = "User Logged In" })           
+        </li>
+        <li class="LoginMenuIcon">
+            @Html.ActionLink("Log Out", "LogOut", "Account", routeValues: null, htmlAttributes: new { @style = "margin-left: 10px;" })
+        </li>
+        
+ 
+    </ul>
+
+}
+else
+{
+
+
+
+    <ul class="nav navbar-nav navbar-right">
+
+    @*<li class="HomeMenuIcon">@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>*@
+@*<li class="LoginMenuIcon">@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>*@
+    </ul>
+}

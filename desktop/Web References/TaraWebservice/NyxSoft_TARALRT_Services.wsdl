@@ -1,0 +1,2272 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s1="http://tempuri.org/AbstractTypes" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="LoadSetupModules">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="_strSetupName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="_strAccessName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="_strLicenseKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadSetupModulesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LoadSetupModulesResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="_strOutput" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadDaysLeft_Where">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="_strLicenseKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadDaysLeft_WhereResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="LoadDaysLeft_WhereResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValidateUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="_strLicenseKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValidateUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ValidateUserResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="_strOutput" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadUserInfo_PerUserID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="_intID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="_strLicenseKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadUserInfo_PerUserIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LoadUserInfo_PerUserIDResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UserInformation_SaveRecord">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="_IsEdit" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="_strInputValidation" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="_strInputs" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="_byteInputs" type="s:base64Binary" />
+            <s:element minOccurs="0" maxOccurs="1" name="_strLicenseKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UserInformation_SaveRecordResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserInformation_SaveRecordResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UserChangePassword_SaveRecord">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="_IsEdit" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="_strInputValidation" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="_strInputs" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="_byteInputs" type="s:base64Binary" />
+            <s:element minOccurs="0" maxOccurs="1" name="_strLicenseKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UserChangePassword_SaveRecordResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserChangePassword_SaveRecordResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserStatus">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="_strUserID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="_strLicenseKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserStatusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUserStatusResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetUserStatus">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="_strCustomerID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="_strStatus" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="_strUserID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="_strLicenseKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetUserStatusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SetUserStatusResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteRecord_RecordID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="_intID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="_strTableName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="_strLicenseKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteRecord_RecordIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DeleteRecord_RecordIDResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadEmployeesTransSelection_Where">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="_strModuleName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="_strLicenseKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadEmployeesTransSelection_WhereResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LoadEmployeesTransSelection_WhereResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadSettingUserAccess_Where">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="_strInputWhereStatement" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="_strLicenseKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadSettingUserAccess_WhereResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LoadSettingUserAccess_WhereResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DELETESettingUserAccess_WHERE">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="_strAccessname" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="_strLicenseKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DELETESettingUserAccess_WHEREResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DELETESettingUserAccess_WHEREResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SettingUserAccess_SaveRecord">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="_IsEdit" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="_strInputValidation" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="_strInputs" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="_strLicenseKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SettingUserAccess_SaveRecordResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SettingUserAccess_SaveRecordResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CountCommuterAccounts_Where">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="_strLicenseKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CountCommuterAccounts_WhereResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CountCommuterAccounts_WhereResult" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CountCommuterAccounts_Today">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="_strLicenseKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CountCommuterAccounts_TodayResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CountCommuterAccounts_TodayResult" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PassengerCounts_Today">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="_strLicenseKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PassengerCounts_TodayResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="PassengerCounts_TodayResult" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadCommuterAccounts_Where">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="_strInputWhereStatement" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="_strLicenseKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadCommuterAccounts_WhereResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LoadCommuterAccounts_WhereResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadCommuterAccounts_Where_JSON">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="_strInputWhereStatement" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="_strLicenseKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadCommuterAccounts_Where_JSONResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="CommuterAccounts_SaveRecord">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="_IsEdit" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="_strInputs" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="_strLicenseKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CommuterAccounts_SaveRecordResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CommuterAccounts_SaveRecordResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadRFIDSetting_Where">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="_strInputWhereStatement" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="_strLicenseKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadRFIDSetting_WhereResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LoadRFIDSetting_WhereResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RFIDSetting_SaveRecord">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="_strInputs" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="_strLicenseKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RFIDSetting_SaveRecordResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RFIDSetting_SaveRecordResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ScannedAdsCount">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="_strLicenseKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ScannedAdsCountResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ScannedAdsCountResult" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RewardsTotal">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="_strLicenseKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RewardsTotalResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RewardsTotalResult" type="s:decimal" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadStationCrownVolume_Where_JSON">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="_strInputWhereStatement" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="_strLicenseKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadStationCrownVolume_Where_JSONResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="LoadRewards_Where_JSON">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="_strInputWhereStatement" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="_strLicenseKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadRewards_Where_JSONResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="Rewards_SaveRecord">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="_strInputs" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="_strLicenseKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Rewards_SaveRecordResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Rewards_SaveRecordResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TravelHistory_SaveRecord">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="_strInputArray" type="tns:ArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="_strLicenseKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="TravelHistory_SaveRecordResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TravelHistory_SaveRecordResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="int" type="s:int" />
+      <s:element name="DataTable" nillable="true">
+        <s:complexType>
+          <s:sequence>
+            <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+            <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="string" nillable="true" type="s:string" />
+      <s:element name="boolean" type="s:boolean" />
+      <s:element name="long" type="s:long" />
+      <s:element name="decimal" type="s:decimal" />
+    </s:schema>
+    <s:schema targetNamespace="http://tempuri.org/AbstractTypes">
+      <s:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+      <s:complexType name="StringArray">
+        <s:complexContent mixed="false">
+          <s:restriction base="soapenc:Array">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="unbounded" name="String" type="s:string" />
+            </s:sequence>
+          </s:restriction>
+        </s:complexContent>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="LoadSetupModulesSoapIn">
+    <wsdl:part name="parameters" element="tns:LoadSetupModules" />
+  </wsdl:message>
+  <wsdl:message name="LoadSetupModulesSoapOut">
+    <wsdl:part name="parameters" element="tns:LoadSetupModulesResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoadDaysLeft_WhereSoapIn">
+    <wsdl:part name="parameters" element="tns:LoadDaysLeft_Where" />
+  </wsdl:message>
+  <wsdl:message name="LoadDaysLeft_WhereSoapOut">
+    <wsdl:part name="parameters" element="tns:LoadDaysLeft_WhereResponse" />
+  </wsdl:message>
+  <wsdl:message name="ValidateUserSoapIn">
+    <wsdl:part name="parameters" element="tns:ValidateUser" />
+  </wsdl:message>
+  <wsdl:message name="ValidateUserSoapOut">
+    <wsdl:part name="parameters" element="tns:ValidateUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoadUserInfo_PerUserIDSoapIn">
+    <wsdl:part name="parameters" element="tns:LoadUserInfo_PerUserID" />
+  </wsdl:message>
+  <wsdl:message name="LoadUserInfo_PerUserIDSoapOut">
+    <wsdl:part name="parameters" element="tns:LoadUserInfo_PerUserIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="UserInformation_SaveRecordSoapIn">
+    <wsdl:part name="parameters" element="tns:UserInformation_SaveRecord" />
+  </wsdl:message>
+  <wsdl:message name="UserInformation_SaveRecordSoapOut">
+    <wsdl:part name="parameters" element="tns:UserInformation_SaveRecordResponse" />
+  </wsdl:message>
+  <wsdl:message name="UserChangePassword_SaveRecordSoapIn">
+    <wsdl:part name="parameters" element="tns:UserChangePassword_SaveRecord" />
+  </wsdl:message>
+  <wsdl:message name="UserChangePassword_SaveRecordSoapOut">
+    <wsdl:part name="parameters" element="tns:UserChangePassword_SaveRecordResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUserStatusSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUserStatus" />
+  </wsdl:message>
+  <wsdl:message name="GetUserStatusSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUserStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetUserStatusSoapIn">
+    <wsdl:part name="parameters" element="tns:SetUserStatus" />
+  </wsdl:message>
+  <wsdl:message name="SetUserStatusSoapOut">
+    <wsdl:part name="parameters" element="tns:SetUserStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteRecord_RecordIDSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteRecord_RecordID" />
+  </wsdl:message>
+  <wsdl:message name="DeleteRecord_RecordIDSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteRecord_RecordIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoadEmployeesTransSelection_WhereSoapIn">
+    <wsdl:part name="parameters" element="tns:LoadEmployeesTransSelection_Where" />
+  </wsdl:message>
+  <wsdl:message name="LoadEmployeesTransSelection_WhereSoapOut">
+    <wsdl:part name="parameters" element="tns:LoadEmployeesTransSelection_WhereResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoadSettingUserAccess_WhereSoapIn">
+    <wsdl:part name="parameters" element="tns:LoadSettingUserAccess_Where" />
+  </wsdl:message>
+  <wsdl:message name="LoadSettingUserAccess_WhereSoapOut">
+    <wsdl:part name="parameters" element="tns:LoadSettingUserAccess_WhereResponse" />
+  </wsdl:message>
+  <wsdl:message name="DELETESettingUserAccess_WHERESoapIn">
+    <wsdl:part name="parameters" element="tns:DELETESettingUserAccess_WHERE" />
+  </wsdl:message>
+  <wsdl:message name="DELETESettingUserAccess_WHERESoapOut">
+    <wsdl:part name="parameters" element="tns:DELETESettingUserAccess_WHEREResponse" />
+  </wsdl:message>
+  <wsdl:message name="SettingUserAccess_SaveRecordSoapIn">
+    <wsdl:part name="parameters" element="tns:SettingUserAccess_SaveRecord" />
+  </wsdl:message>
+  <wsdl:message name="SettingUserAccess_SaveRecordSoapOut">
+    <wsdl:part name="parameters" element="tns:SettingUserAccess_SaveRecordResponse" />
+  </wsdl:message>
+  <wsdl:message name="CountCommuterAccounts_WhereSoapIn">
+    <wsdl:part name="parameters" element="tns:CountCommuterAccounts_Where" />
+  </wsdl:message>
+  <wsdl:message name="CountCommuterAccounts_WhereSoapOut">
+    <wsdl:part name="parameters" element="tns:CountCommuterAccounts_WhereResponse" />
+  </wsdl:message>
+  <wsdl:message name="CountCommuterAccounts_TodaySoapIn">
+    <wsdl:part name="parameters" element="tns:CountCommuterAccounts_Today" />
+  </wsdl:message>
+  <wsdl:message name="CountCommuterAccounts_TodaySoapOut">
+    <wsdl:part name="parameters" element="tns:CountCommuterAccounts_TodayResponse" />
+  </wsdl:message>
+  <wsdl:message name="PassengerCounts_TodaySoapIn">
+    <wsdl:part name="parameters" element="tns:PassengerCounts_Today" />
+  </wsdl:message>
+  <wsdl:message name="PassengerCounts_TodaySoapOut">
+    <wsdl:part name="parameters" element="tns:PassengerCounts_TodayResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoadCommuterAccounts_WhereSoapIn">
+    <wsdl:part name="parameters" element="tns:LoadCommuterAccounts_Where" />
+  </wsdl:message>
+  <wsdl:message name="LoadCommuterAccounts_WhereSoapOut">
+    <wsdl:part name="parameters" element="tns:LoadCommuterAccounts_WhereResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoadCommuterAccounts_Where_JSONSoapIn">
+    <wsdl:part name="parameters" element="tns:LoadCommuterAccounts_Where_JSON" />
+  </wsdl:message>
+  <wsdl:message name="LoadCommuterAccounts_Where_JSONSoapOut">
+    <wsdl:part name="parameters" element="tns:LoadCommuterAccounts_Where_JSONResponse" />
+  </wsdl:message>
+  <wsdl:message name="CommuterAccounts_SaveRecordSoapIn">
+    <wsdl:part name="parameters" element="tns:CommuterAccounts_SaveRecord" />
+  </wsdl:message>
+  <wsdl:message name="CommuterAccounts_SaveRecordSoapOut">
+    <wsdl:part name="parameters" element="tns:CommuterAccounts_SaveRecordResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoadRFIDSetting_WhereSoapIn">
+    <wsdl:part name="parameters" element="tns:LoadRFIDSetting_Where" />
+  </wsdl:message>
+  <wsdl:message name="LoadRFIDSetting_WhereSoapOut">
+    <wsdl:part name="parameters" element="tns:LoadRFIDSetting_WhereResponse" />
+  </wsdl:message>
+  <wsdl:message name="RFIDSetting_SaveRecordSoapIn">
+    <wsdl:part name="parameters" element="tns:RFIDSetting_SaveRecord" />
+  </wsdl:message>
+  <wsdl:message name="RFIDSetting_SaveRecordSoapOut">
+    <wsdl:part name="parameters" element="tns:RFIDSetting_SaveRecordResponse" />
+  </wsdl:message>
+  <wsdl:message name="ScannedAdsCountSoapIn">
+    <wsdl:part name="parameters" element="tns:ScannedAdsCount" />
+  </wsdl:message>
+  <wsdl:message name="ScannedAdsCountSoapOut">
+    <wsdl:part name="parameters" element="tns:ScannedAdsCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="RewardsTotalSoapIn">
+    <wsdl:part name="parameters" element="tns:RewardsTotal" />
+  </wsdl:message>
+  <wsdl:message name="RewardsTotalSoapOut">
+    <wsdl:part name="parameters" element="tns:RewardsTotalResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoadStationCrownVolume_Where_JSONSoapIn">
+    <wsdl:part name="parameters" element="tns:LoadStationCrownVolume_Where_JSON" />
+  </wsdl:message>
+  <wsdl:message name="LoadStationCrownVolume_Where_JSONSoapOut">
+    <wsdl:part name="parameters" element="tns:LoadStationCrownVolume_Where_JSONResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoadRewards_Where_JSONSoapIn">
+    <wsdl:part name="parameters" element="tns:LoadRewards_Where_JSON" />
+  </wsdl:message>
+  <wsdl:message name="LoadRewards_Where_JSONSoapOut">
+    <wsdl:part name="parameters" element="tns:LoadRewards_Where_JSONResponse" />
+  </wsdl:message>
+  <wsdl:message name="Rewards_SaveRecordSoapIn">
+    <wsdl:part name="parameters" element="tns:Rewards_SaveRecord" />
+  </wsdl:message>
+  <wsdl:message name="Rewards_SaveRecordSoapOut">
+    <wsdl:part name="parameters" element="tns:Rewards_SaveRecordResponse" />
+  </wsdl:message>
+  <wsdl:message name="TravelHistory_SaveRecordSoapIn">
+    <wsdl:part name="parameters" element="tns:TravelHistory_SaveRecord" />
+  </wsdl:message>
+  <wsdl:message name="TravelHistory_SaveRecordSoapOut">
+    <wsdl:part name="parameters" element="tns:TravelHistory_SaveRecordResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoadDaysLeft_WhereHttpGetIn">
+    <wsdl:part name="_strLicenseKey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="LoadDaysLeft_WhereHttpGetOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="LoadUserInfo_PerUserIDHttpGetIn">
+    <wsdl:part name="_intID" type="s:string" />
+    <wsdl:part name="_strLicenseKey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="LoadUserInfo_PerUserIDHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataTable" />
+  </wsdl:message>
+  <wsdl:message name="UserInformation_SaveRecordHttpGetIn">
+    <wsdl:part name="_IsEdit" type="s:string" />
+    <wsdl:part name="_strInputValidation" type="s:string" />
+    <wsdl:part name="_strInputs" type="s:string" />
+    <wsdl:part name="_byteInputs" type="s1:StringArray" />
+    <wsdl:part name="_strLicenseKey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UserInformation_SaveRecordHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="UserChangePassword_SaveRecordHttpGetIn">
+    <wsdl:part name="_IsEdit" type="s:string" />
+    <wsdl:part name="_strInputValidation" type="s:string" />
+    <wsdl:part name="_strInputs" type="s:string" />
+    <wsdl:part name="_byteInputs" type="s1:StringArray" />
+    <wsdl:part name="_strLicenseKey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UserChangePassword_SaveRecordHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetUserStatusHttpGetIn">
+    <wsdl:part name="_strUserID" type="s:string" />
+    <wsdl:part name="_strLicenseKey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetUserStatusHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataTable" />
+  </wsdl:message>
+  <wsdl:message name="SetUserStatusHttpGetIn">
+    <wsdl:part name="_strCustomerID" type="s:string" />
+    <wsdl:part name="_strStatus" type="s:string" />
+    <wsdl:part name="_strUserID" type="s:string" />
+    <wsdl:part name="_strLicenseKey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SetUserStatusHttpGetOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="DeleteRecord_RecordIDHttpGetIn">
+    <wsdl:part name="_intID" type="s:string" />
+    <wsdl:part name="_strTableName" type="s:string" />
+    <wsdl:part name="_strLicenseKey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DeleteRecord_RecordIDHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="LoadEmployeesTransSelection_WhereHttpGetIn">
+    <wsdl:part name="_strModuleName" type="s:string" />
+    <wsdl:part name="_strLicenseKey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="LoadEmployeesTransSelection_WhereHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataTable" />
+  </wsdl:message>
+  <wsdl:message name="LoadSettingUserAccess_WhereHttpGetIn">
+    <wsdl:part name="_strInputWhereStatement" type="s:string" />
+    <wsdl:part name="_strLicenseKey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="LoadSettingUserAccess_WhereHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataTable" />
+  </wsdl:message>
+  <wsdl:message name="DELETESettingUserAccess_WHEREHttpGetIn">
+    <wsdl:part name="_strAccessname" type="s:string" />
+    <wsdl:part name="_strLicenseKey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DELETESettingUserAccess_WHEREHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="SettingUserAccess_SaveRecordHttpGetIn">
+    <wsdl:part name="_IsEdit" type="s:string" />
+    <wsdl:part name="_strInputValidation" type="s:string" />
+    <wsdl:part name="_strInputs" type="s:string" />
+    <wsdl:part name="_strLicenseKey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SettingUserAccess_SaveRecordHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="CountCommuterAccounts_WhereHttpGetIn">
+    <wsdl:part name="_strLicenseKey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CountCommuterAccounts_WhereHttpGetOut">
+    <wsdl:part name="Body" element="tns:long" />
+  </wsdl:message>
+  <wsdl:message name="CountCommuterAccounts_TodayHttpGetIn">
+    <wsdl:part name="_strLicenseKey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CountCommuterAccounts_TodayHttpGetOut">
+    <wsdl:part name="Body" element="tns:long" />
+  </wsdl:message>
+  <wsdl:message name="PassengerCounts_TodayHttpGetIn">
+    <wsdl:part name="_strLicenseKey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="PassengerCounts_TodayHttpGetOut">
+    <wsdl:part name="Body" element="tns:long" />
+  </wsdl:message>
+  <wsdl:message name="LoadCommuterAccounts_WhereHttpGetIn">
+    <wsdl:part name="_strInputWhereStatement" type="s:string" />
+    <wsdl:part name="_strLicenseKey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="LoadCommuterAccounts_WhereHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataTable" />
+  </wsdl:message>
+  <wsdl:message name="LoadCommuterAccounts_Where_JSONHttpGetIn">
+    <wsdl:part name="_strInputWhereStatement" type="s:string" />
+    <wsdl:part name="_strLicenseKey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="LoadCommuterAccounts_Where_JSONHttpGetOut" />
+  <wsdl:message name="CommuterAccounts_SaveRecordHttpGetIn">
+    <wsdl:part name="_IsEdit" type="s:string" />
+    <wsdl:part name="_strInputs" type="s:string" />
+    <wsdl:part name="_strLicenseKey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CommuterAccounts_SaveRecordHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="LoadRFIDSetting_WhereHttpGetIn">
+    <wsdl:part name="_strInputWhereStatement" type="s:string" />
+    <wsdl:part name="_strLicenseKey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="LoadRFIDSetting_WhereHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataTable" />
+  </wsdl:message>
+  <wsdl:message name="RFIDSetting_SaveRecordHttpGetIn">
+    <wsdl:part name="_strInputs" type="s:string" />
+    <wsdl:part name="_strLicenseKey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="RFIDSetting_SaveRecordHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="ScannedAdsCountHttpGetIn">
+    <wsdl:part name="_strLicenseKey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ScannedAdsCountHttpGetOut">
+    <wsdl:part name="Body" element="tns:long" />
+  </wsdl:message>
+  <wsdl:message name="RewardsTotalHttpGetIn">
+    <wsdl:part name="_strLicenseKey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="RewardsTotalHttpGetOut">
+    <wsdl:part name="Body" element="tns:decimal" />
+  </wsdl:message>
+  <wsdl:message name="LoadStationCrownVolume_Where_JSONHttpGetIn">
+    <wsdl:part name="_strInputWhereStatement" type="s:string" />
+    <wsdl:part name="_strLicenseKey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="LoadStationCrownVolume_Where_JSONHttpGetOut" />
+  <wsdl:message name="LoadRewards_Where_JSONHttpGetIn">
+    <wsdl:part name="_strInputWhereStatement" type="s:string" />
+    <wsdl:part name="_strLicenseKey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="LoadRewards_Where_JSONHttpGetOut" />
+  <wsdl:message name="Rewards_SaveRecordHttpGetIn">
+    <wsdl:part name="_strInputs" type="s:string" />
+    <wsdl:part name="_strLicenseKey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Rewards_SaveRecordHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="TravelHistory_SaveRecordHttpGetIn">
+    <wsdl:part name="_strInputArray" type="s1:StringArray" />
+    <wsdl:part name="_strLicenseKey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TravelHistory_SaveRecordHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="LoadDaysLeft_WhereHttpPostIn">
+    <wsdl:part name="_strLicenseKey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="LoadDaysLeft_WhereHttpPostOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="LoadUserInfo_PerUserIDHttpPostIn">
+    <wsdl:part name="_intID" type="s:string" />
+    <wsdl:part name="_strLicenseKey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="LoadUserInfo_PerUserIDHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataTable" />
+  </wsdl:message>
+  <wsdl:message name="UserInformation_SaveRecordHttpPostIn">
+    <wsdl:part name="_IsEdit" type="s:string" />
+    <wsdl:part name="_strInputValidation" type="s:string" />
+    <wsdl:part name="_strInputs" type="s:string" />
+    <wsdl:part name="_byteInputs" type="s1:StringArray" />
+    <wsdl:part name="_strLicenseKey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UserInformation_SaveRecordHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="UserChangePassword_SaveRecordHttpPostIn">
+    <wsdl:part name="_IsEdit" type="s:string" />
+    <wsdl:part name="_strInputValidation" type="s:string" />
+    <wsdl:part name="_strInputs" type="s:string" />
+    <wsdl:part name="_byteInputs" type="s1:StringArray" />
+    <wsdl:part name="_strLicenseKey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UserChangePassword_SaveRecordHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetUserStatusHttpPostIn">
+    <wsdl:part name="_strUserID" type="s:string" />
+    <wsdl:part name="_strLicenseKey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetUserStatusHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataTable" />
+  </wsdl:message>
+  <wsdl:message name="SetUserStatusHttpPostIn">
+    <wsdl:part name="_strCustomerID" type="s:string" />
+    <wsdl:part name="_strStatus" type="s:string" />
+    <wsdl:part name="_strUserID" type="s:string" />
+    <wsdl:part name="_strLicenseKey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SetUserStatusHttpPostOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="DeleteRecord_RecordIDHttpPostIn">
+    <wsdl:part name="_intID" type="s:string" />
+    <wsdl:part name="_strTableName" type="s:string" />
+    <wsdl:part name="_strLicenseKey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DeleteRecord_RecordIDHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="LoadEmployeesTransSelection_WhereHttpPostIn">
+    <wsdl:part name="_strModuleName" type="s:string" />
+    <wsdl:part name="_strLicenseKey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="LoadEmployeesTransSelection_WhereHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataTable" />
+  </wsdl:message>
+  <wsdl:message name="LoadSettingUserAccess_WhereHttpPostIn">
+    <wsdl:part name="_strInputWhereStatement" type="s:string" />
+    <wsdl:part name="_strLicenseKey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="LoadSettingUserAccess_WhereHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataTable" />
+  </wsdl:message>
+  <wsdl:message name="DELETESettingUserAccess_WHEREHttpPostIn">
+    <wsdl:part name="_strAccessname" type="s:string" />
+    <wsdl:part name="_strLicenseKey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DELETESettingUserAccess_WHEREHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="SettingUserAccess_SaveRecordHttpPostIn">
+    <wsdl:part name="_IsEdit" type="s:string" />
+    <wsdl:part name="_strInputValidation" type="s:string" />
+    <wsdl:part name="_strInputs" type="s:string" />
+    <wsdl:part name="_strLicenseKey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SettingUserAccess_SaveRecordHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="CountCommuterAccounts_WhereHttpPostIn">
+    <wsdl:part name="_strLicenseKey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CountCommuterAccounts_WhereHttpPostOut">
+    <wsdl:part name="Body" element="tns:long" />
+  </wsdl:message>
+  <wsdl:message name="CountCommuterAccounts_TodayHttpPostIn">
+    <wsdl:part name="_strLicenseKey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CountCommuterAccounts_TodayHttpPostOut">
+    <wsdl:part name="Body" element="tns:long" />
+  </wsdl:message>
+  <wsdl:message name="PassengerCounts_TodayHttpPostIn">
+    <wsdl:part name="_strLicenseKey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="PassengerCounts_TodayHttpPostOut">
+    <wsdl:part name="Body" element="tns:long" />
+  </wsdl:message>
+  <wsdl:message name="LoadCommuterAccounts_WhereHttpPostIn">
+    <wsdl:part name="_strInputWhereStatement" type="s:string" />
+    <wsdl:part name="_strLicenseKey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="LoadCommuterAccounts_WhereHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataTable" />
+  </wsdl:message>
+  <wsdl:message name="LoadCommuterAccounts_Where_JSONHttpPostIn">
+    <wsdl:part name="_strInputWhereStatement" type="s:string" />
+    <wsdl:part name="_strLicenseKey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="LoadCommuterAccounts_Where_JSONHttpPostOut" />
+  <wsdl:message name="CommuterAccounts_SaveRecordHttpPostIn">
+    <wsdl:part name="_IsEdit" type="s:string" />
+    <wsdl:part name="_strInputs" type="s:string" />
+    <wsdl:part name="_strLicenseKey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CommuterAccounts_SaveRecordHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="LoadRFIDSetting_WhereHttpPostIn">
+    <wsdl:part name="_strInputWhereStatement" type="s:string" />
+    <wsdl:part name="_strLicenseKey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="LoadRFIDSetting_WhereHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataTable" />
+  </wsdl:message>
+  <wsdl:message name="RFIDSetting_SaveRecordHttpPostIn">
+    <wsdl:part name="_strInputs" type="s:string" />
+    <wsdl:part name="_strLicenseKey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="RFIDSetting_SaveRecordHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="ScannedAdsCountHttpPostIn">
+    <wsdl:part name="_strLicenseKey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ScannedAdsCountHttpPostOut">
+    <wsdl:part name="Body" element="tns:long" />
+  </wsdl:message>
+  <wsdl:message name="RewardsTotalHttpPostIn">
+    <wsdl:part name="_strLicenseKey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="RewardsTotalHttpPostOut">
+    <wsdl:part name="Body" element="tns:decimal" />
+  </wsdl:message>
+  <wsdl:message name="LoadStationCrownVolume_Where_JSONHttpPostIn">
+    <wsdl:part name="_strInputWhereStatement" type="s:string" />
+    <wsdl:part name="_strLicenseKey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="LoadStationCrownVolume_Where_JSONHttpPostOut" />
+  <wsdl:message name="LoadRewards_Where_JSONHttpPostIn">
+    <wsdl:part name="_strInputWhereStatement" type="s:string" />
+    <wsdl:part name="_strLicenseKey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="LoadRewards_Where_JSONHttpPostOut" />
+  <wsdl:message name="Rewards_SaveRecordHttpPostIn">
+    <wsdl:part name="_strInputs" type="s:string" />
+    <wsdl:part name="_strLicenseKey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Rewards_SaveRecordHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="TravelHistory_SaveRecordHttpPostIn">
+    <wsdl:part name="_strInputArray" type="s1:StringArray" />
+    <wsdl:part name="_strLicenseKey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TravelHistory_SaveRecordHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:portType name="NyxSoft_AMS_ServicesSoap">
+    <wsdl:operation name="LoadSetupModules">
+      <wsdl:input message="tns:LoadSetupModulesSoapIn" />
+      <wsdl:output message="tns:LoadSetupModulesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadDaysLeft_Where">
+      <wsdl:input message="tns:LoadDaysLeft_WhereSoapIn" />
+      <wsdl:output message="tns:LoadDaysLeft_WhereSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidateUser">
+      <wsdl:input message="tns:ValidateUserSoapIn" />
+      <wsdl:output message="tns:ValidateUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadUserInfo_PerUserID">
+      <wsdl:input message="tns:LoadUserInfo_PerUserIDSoapIn" />
+      <wsdl:output message="tns:LoadUserInfo_PerUserIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UserInformation_SaveRecord">
+      <wsdl:input message="tns:UserInformation_SaveRecordSoapIn" />
+      <wsdl:output message="tns:UserInformation_SaveRecordSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UserChangePassword_SaveRecord">
+      <wsdl:input message="tns:UserChangePassword_SaveRecordSoapIn" />
+      <wsdl:output message="tns:UserChangePassword_SaveRecordSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserStatus">
+      <wsdl:input message="tns:GetUserStatusSoapIn" />
+      <wsdl:output message="tns:GetUserStatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetUserStatus">
+      <wsdl:input message="tns:SetUserStatusSoapIn" />
+      <wsdl:output message="tns:SetUserStatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteRecord_RecordID">
+      <wsdl:input message="tns:DeleteRecord_RecordIDSoapIn" />
+      <wsdl:output message="tns:DeleteRecord_RecordIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadEmployeesTransSelection_Where">
+      <wsdl:input message="tns:LoadEmployeesTransSelection_WhereSoapIn" />
+      <wsdl:output message="tns:LoadEmployeesTransSelection_WhereSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadSettingUserAccess_Where">
+      <wsdl:input message="tns:LoadSettingUserAccess_WhereSoapIn" />
+      <wsdl:output message="tns:LoadSettingUserAccess_WhereSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DELETESettingUserAccess_WHERE">
+      <wsdl:input message="tns:DELETESettingUserAccess_WHERESoapIn" />
+      <wsdl:output message="tns:DELETESettingUserAccess_WHERESoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SettingUserAccess_SaveRecord">
+      <wsdl:input message="tns:SettingUserAccess_SaveRecordSoapIn" />
+      <wsdl:output message="tns:SettingUserAccess_SaveRecordSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CountCommuterAccounts_Where">
+      <wsdl:input message="tns:CountCommuterAccounts_WhereSoapIn" />
+      <wsdl:output message="tns:CountCommuterAccounts_WhereSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CountCommuterAccounts_Today">
+      <wsdl:input message="tns:CountCommuterAccounts_TodaySoapIn" />
+      <wsdl:output message="tns:CountCommuterAccounts_TodaySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PassengerCounts_Today">
+      <wsdl:input message="tns:PassengerCounts_TodaySoapIn" />
+      <wsdl:output message="tns:PassengerCounts_TodaySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadCommuterAccounts_Where">
+      <wsdl:input message="tns:LoadCommuterAccounts_WhereSoapIn" />
+      <wsdl:output message="tns:LoadCommuterAccounts_WhereSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadCommuterAccounts_Where_JSON">
+      <wsdl:input message="tns:LoadCommuterAccounts_Where_JSONSoapIn" />
+      <wsdl:output message="tns:LoadCommuterAccounts_Where_JSONSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CommuterAccounts_SaveRecord">
+      <wsdl:input message="tns:CommuterAccounts_SaveRecordSoapIn" />
+      <wsdl:output message="tns:CommuterAccounts_SaveRecordSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadRFIDSetting_Where">
+      <wsdl:input message="tns:LoadRFIDSetting_WhereSoapIn" />
+      <wsdl:output message="tns:LoadRFIDSetting_WhereSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RFIDSetting_SaveRecord">
+      <wsdl:input message="tns:RFIDSetting_SaveRecordSoapIn" />
+      <wsdl:output message="tns:RFIDSetting_SaveRecordSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ScannedAdsCount">
+      <wsdl:input message="tns:ScannedAdsCountSoapIn" />
+      <wsdl:output message="tns:ScannedAdsCountSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RewardsTotal">
+      <wsdl:input message="tns:RewardsTotalSoapIn" />
+      <wsdl:output message="tns:RewardsTotalSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadStationCrownVolume_Where_JSON">
+      <wsdl:input message="tns:LoadStationCrownVolume_Where_JSONSoapIn" />
+      <wsdl:output message="tns:LoadStationCrownVolume_Where_JSONSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadRewards_Where_JSON">
+      <wsdl:input message="tns:LoadRewards_Where_JSONSoapIn" />
+      <wsdl:output message="tns:LoadRewards_Where_JSONSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Rewards_SaveRecord">
+      <wsdl:input message="tns:Rewards_SaveRecordSoapIn" />
+      <wsdl:output message="tns:Rewards_SaveRecordSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TravelHistory_SaveRecord">
+      <wsdl:input message="tns:TravelHistory_SaveRecordSoapIn" />
+      <wsdl:output message="tns:TravelHistory_SaveRecordSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="NyxSoft_AMS_ServicesHttpGet">
+    <wsdl:operation name="LoadDaysLeft_Where">
+      <wsdl:input message="tns:LoadDaysLeft_WhereHttpGetIn" />
+      <wsdl:output message="tns:LoadDaysLeft_WhereHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadUserInfo_PerUserID">
+      <wsdl:input message="tns:LoadUserInfo_PerUserIDHttpGetIn" />
+      <wsdl:output message="tns:LoadUserInfo_PerUserIDHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UserInformation_SaveRecord">
+      <wsdl:input message="tns:UserInformation_SaveRecordHttpGetIn" />
+      <wsdl:output message="tns:UserInformation_SaveRecordHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UserChangePassword_SaveRecord">
+      <wsdl:input message="tns:UserChangePassword_SaveRecordHttpGetIn" />
+      <wsdl:output message="tns:UserChangePassword_SaveRecordHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserStatus">
+      <wsdl:input message="tns:GetUserStatusHttpGetIn" />
+      <wsdl:output message="tns:GetUserStatusHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetUserStatus">
+      <wsdl:input message="tns:SetUserStatusHttpGetIn" />
+      <wsdl:output message="tns:SetUserStatusHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteRecord_RecordID">
+      <wsdl:input message="tns:DeleteRecord_RecordIDHttpGetIn" />
+      <wsdl:output message="tns:DeleteRecord_RecordIDHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadEmployeesTransSelection_Where">
+      <wsdl:input message="tns:LoadEmployeesTransSelection_WhereHttpGetIn" />
+      <wsdl:output message="tns:LoadEmployeesTransSelection_WhereHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadSettingUserAccess_Where">
+      <wsdl:input message="tns:LoadSettingUserAccess_WhereHttpGetIn" />
+      <wsdl:output message="tns:LoadSettingUserAccess_WhereHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DELETESettingUserAccess_WHERE">
+      <wsdl:input message="tns:DELETESettingUserAccess_WHEREHttpGetIn" />
+      <wsdl:output message="tns:DELETESettingUserAccess_WHEREHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SettingUserAccess_SaveRecord">
+      <wsdl:input message="tns:SettingUserAccess_SaveRecordHttpGetIn" />
+      <wsdl:output message="tns:SettingUserAccess_SaveRecordHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CountCommuterAccounts_Where">
+      <wsdl:input message="tns:CountCommuterAccounts_WhereHttpGetIn" />
+      <wsdl:output message="tns:CountCommuterAccounts_WhereHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CountCommuterAccounts_Today">
+      <wsdl:input message="tns:CountCommuterAccounts_TodayHttpGetIn" />
+      <wsdl:output message="tns:CountCommuterAccounts_TodayHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PassengerCounts_Today">
+      <wsdl:input message="tns:PassengerCounts_TodayHttpGetIn" />
+      <wsdl:output message="tns:PassengerCounts_TodayHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadCommuterAccounts_Where">
+      <wsdl:input message="tns:LoadCommuterAccounts_WhereHttpGetIn" />
+      <wsdl:output message="tns:LoadCommuterAccounts_WhereHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadCommuterAccounts_Where_JSON">
+      <wsdl:input message="tns:LoadCommuterAccounts_Where_JSONHttpGetIn" />
+      <wsdl:output message="tns:LoadCommuterAccounts_Where_JSONHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CommuterAccounts_SaveRecord">
+      <wsdl:input message="tns:CommuterAccounts_SaveRecordHttpGetIn" />
+      <wsdl:output message="tns:CommuterAccounts_SaveRecordHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadRFIDSetting_Where">
+      <wsdl:input message="tns:LoadRFIDSetting_WhereHttpGetIn" />
+      <wsdl:output message="tns:LoadRFIDSetting_WhereHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RFIDSetting_SaveRecord">
+      <wsdl:input message="tns:RFIDSetting_SaveRecordHttpGetIn" />
+      <wsdl:output message="tns:RFIDSetting_SaveRecordHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ScannedAdsCount">
+      <wsdl:input message="tns:ScannedAdsCountHttpGetIn" />
+      <wsdl:output message="tns:ScannedAdsCountHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RewardsTotal">
+      <wsdl:input message="tns:RewardsTotalHttpGetIn" />
+      <wsdl:output message="tns:RewardsTotalHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadStationCrownVolume_Where_JSON">
+      <wsdl:input message="tns:LoadStationCrownVolume_Where_JSONHttpGetIn" />
+      <wsdl:output message="tns:LoadStationCrownVolume_Where_JSONHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadRewards_Where_JSON">
+      <wsdl:input message="tns:LoadRewards_Where_JSONHttpGetIn" />
+      <wsdl:output message="tns:LoadRewards_Where_JSONHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Rewards_SaveRecord">
+      <wsdl:input message="tns:Rewards_SaveRecordHttpGetIn" />
+      <wsdl:output message="tns:Rewards_SaveRecordHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TravelHistory_SaveRecord">
+      <wsdl:input message="tns:TravelHistory_SaveRecordHttpGetIn" />
+      <wsdl:output message="tns:TravelHistory_SaveRecordHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="NyxSoft_AMS_ServicesHttpPost">
+    <wsdl:operation name="LoadDaysLeft_Where">
+      <wsdl:input message="tns:LoadDaysLeft_WhereHttpPostIn" />
+      <wsdl:output message="tns:LoadDaysLeft_WhereHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadUserInfo_PerUserID">
+      <wsdl:input message="tns:LoadUserInfo_PerUserIDHttpPostIn" />
+      <wsdl:output message="tns:LoadUserInfo_PerUserIDHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UserInformation_SaveRecord">
+      <wsdl:input message="tns:UserInformation_SaveRecordHttpPostIn" />
+      <wsdl:output message="tns:UserInformation_SaveRecordHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UserChangePassword_SaveRecord">
+      <wsdl:input message="tns:UserChangePassword_SaveRecordHttpPostIn" />
+      <wsdl:output message="tns:UserChangePassword_SaveRecordHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserStatus">
+      <wsdl:input message="tns:GetUserStatusHttpPostIn" />
+      <wsdl:output message="tns:GetUserStatusHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetUserStatus">
+      <wsdl:input message="tns:SetUserStatusHttpPostIn" />
+      <wsdl:output message="tns:SetUserStatusHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteRecord_RecordID">
+      <wsdl:input message="tns:DeleteRecord_RecordIDHttpPostIn" />
+      <wsdl:output message="tns:DeleteRecord_RecordIDHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadEmployeesTransSelection_Where">
+      <wsdl:input message="tns:LoadEmployeesTransSelection_WhereHttpPostIn" />
+      <wsdl:output message="tns:LoadEmployeesTransSelection_WhereHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadSettingUserAccess_Where">
+      <wsdl:input message="tns:LoadSettingUserAccess_WhereHttpPostIn" />
+      <wsdl:output message="tns:LoadSettingUserAccess_WhereHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DELETESettingUserAccess_WHERE">
+      <wsdl:input message="tns:DELETESettingUserAccess_WHEREHttpPostIn" />
+      <wsdl:output message="tns:DELETESettingUserAccess_WHEREHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SettingUserAccess_SaveRecord">
+      <wsdl:input message="tns:SettingUserAccess_SaveRecordHttpPostIn" />
+      <wsdl:output message="tns:SettingUserAccess_SaveRecordHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CountCommuterAccounts_Where">
+      <wsdl:input message="tns:CountCommuterAccounts_WhereHttpPostIn" />
+      <wsdl:output message="tns:CountCommuterAccounts_WhereHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CountCommuterAccounts_Today">
+      <wsdl:input message="tns:CountCommuterAccounts_TodayHttpPostIn" />
+      <wsdl:output message="tns:CountCommuterAccounts_TodayHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PassengerCounts_Today">
+      <wsdl:input message="tns:PassengerCounts_TodayHttpPostIn" />
+      <wsdl:output message="tns:PassengerCounts_TodayHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadCommuterAccounts_Where">
+      <wsdl:input message="tns:LoadCommuterAccounts_WhereHttpPostIn" />
+      <wsdl:output message="tns:LoadCommuterAccounts_WhereHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadCommuterAccounts_Where_JSON">
+      <wsdl:input message="tns:LoadCommuterAccounts_Where_JSONHttpPostIn" />
+      <wsdl:output message="tns:LoadCommuterAccounts_Where_JSONHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CommuterAccounts_SaveRecord">
+      <wsdl:input message="tns:CommuterAccounts_SaveRecordHttpPostIn" />
+      <wsdl:output message="tns:CommuterAccounts_SaveRecordHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadRFIDSetting_Where">
+      <wsdl:input message="tns:LoadRFIDSetting_WhereHttpPostIn" />
+      <wsdl:output message="tns:LoadRFIDSetting_WhereHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RFIDSetting_SaveRecord">
+      <wsdl:input message="tns:RFIDSetting_SaveRecordHttpPostIn" />
+      <wsdl:output message="tns:RFIDSetting_SaveRecordHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ScannedAdsCount">
+      <wsdl:input message="tns:ScannedAdsCountHttpPostIn" />
+      <wsdl:output message="tns:ScannedAdsCountHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RewardsTotal">
+      <wsdl:input message="tns:RewardsTotalHttpPostIn" />
+      <wsdl:output message="tns:RewardsTotalHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadStationCrownVolume_Where_JSON">
+      <wsdl:input message="tns:LoadStationCrownVolume_Where_JSONHttpPostIn" />
+      <wsdl:output message="tns:LoadStationCrownVolume_Where_JSONHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadRewards_Where_JSON">
+      <wsdl:input message="tns:LoadRewards_Where_JSONHttpPostIn" />
+      <wsdl:output message="tns:LoadRewards_Where_JSONHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Rewards_SaveRecord">
+      <wsdl:input message="tns:Rewards_SaveRecordHttpPostIn" />
+      <wsdl:output message="tns:Rewards_SaveRecordHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TravelHistory_SaveRecord">
+      <wsdl:input message="tns:TravelHistory_SaveRecordHttpPostIn" />
+      <wsdl:output message="tns:TravelHistory_SaveRecordHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="NyxSoft_AMS_ServicesSoap" type="tns:NyxSoft_AMS_ServicesSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="LoadSetupModules">
+      <soap:operation soapAction="http://tempuri.org/LoadSetupModules" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadDaysLeft_Where">
+      <soap:operation soapAction="http://tempuri.org/LoadDaysLeft_Where" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateUser">
+      <soap:operation soapAction="http://tempuri.org/ValidateUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadUserInfo_PerUserID">
+      <soap:operation soapAction="http://tempuri.org/LoadUserInfo_PerUserID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UserInformation_SaveRecord">
+      <soap:operation soapAction="http://tempuri.org/UserInformation_SaveRecord" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UserChangePassword_SaveRecord">
+      <soap:operation soapAction="http://tempuri.org/UserChangePassword_SaveRecord" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserStatus">
+      <soap:operation soapAction="http://tempuri.org/GetUserStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetUserStatus">
+      <soap:operation soapAction="http://tempuri.org/SetUserStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteRecord_RecordID">
+      <soap:operation soapAction="http://tempuri.org/DeleteRecord_RecordID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadEmployeesTransSelection_Where">
+      <soap:operation soapAction="http://tempuri.org/LoadEmployeesTransSelection_Where" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadSettingUserAccess_Where">
+      <soap:operation soapAction="http://tempuri.org/LoadSettingUserAccess_Where" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DELETESettingUserAccess_WHERE">
+      <soap:operation soapAction="http://tempuri.org/DELETESettingUserAccess_WHERE" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SettingUserAccess_SaveRecord">
+      <soap:operation soapAction="http://tempuri.org/SettingUserAccess_SaveRecord" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CountCommuterAccounts_Where">
+      <soap:operation soapAction="http://tempuri.org/CountCommuterAccounts_Where" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CountCommuterAccounts_Today">
+      <soap:operation soapAction="http://tempuri.org/CountCommuterAccounts_Today" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PassengerCounts_Today">
+      <soap:operation soapAction="http://tempuri.org/PassengerCounts_Today" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadCommuterAccounts_Where">
+      <soap:operation soapAction="http://tempuri.org/LoadCommuterAccounts_Where" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadCommuterAccounts_Where_JSON">
+      <soap:operation soapAction="http://tempuri.org/LoadCommuterAccounts_Where_JSON" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CommuterAccounts_SaveRecord">
+      <soap:operation soapAction="http://tempuri.org/CommuterAccounts_SaveRecord" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadRFIDSetting_Where">
+      <soap:operation soapAction="http://tempuri.org/LoadRFIDSetting_Where" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RFIDSetting_SaveRecord">
+      <soap:operation soapAction="http://tempuri.org/RFIDSetting_SaveRecord" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ScannedAdsCount">
+      <soap:operation soapAction="http://tempuri.org/ScannedAdsCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RewardsTotal">
+      <soap:operation soapAction="http://tempuri.org/RewardsTotal" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadStationCrownVolume_Where_JSON">
+      <soap:operation soapAction="http://tempuri.org/LoadStationCrownVolume_Where_JSON" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadRewards_Where_JSON">
+      <soap:operation soapAction="http://tempuri.org/LoadRewards_Where_JSON" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Rewards_SaveRecord">
+      <soap:operation soapAction="http://tempuri.org/Rewards_SaveRecord" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TravelHistory_SaveRecord">
+      <soap:operation soapAction="http://tempuri.org/TravelHistory_SaveRecord" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="NyxSoft_AMS_ServicesSoap12" type="tns:NyxSoft_AMS_ServicesSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="LoadSetupModules">
+      <soap12:operation soapAction="http://tempuri.org/LoadSetupModules" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadDaysLeft_Where">
+      <soap12:operation soapAction="http://tempuri.org/LoadDaysLeft_Where" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateUser">
+      <soap12:operation soapAction="http://tempuri.org/ValidateUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadUserInfo_PerUserID">
+      <soap12:operation soapAction="http://tempuri.org/LoadUserInfo_PerUserID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UserInformation_SaveRecord">
+      <soap12:operation soapAction="http://tempuri.org/UserInformation_SaveRecord" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UserChangePassword_SaveRecord">
+      <soap12:operation soapAction="http://tempuri.org/UserChangePassword_SaveRecord" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserStatus">
+      <soap12:operation soapAction="http://tempuri.org/GetUserStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetUserStatus">
+      <soap12:operation soapAction="http://tempuri.org/SetUserStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteRecord_RecordID">
+      <soap12:operation soapAction="http://tempuri.org/DeleteRecord_RecordID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadEmployeesTransSelection_Where">
+      <soap12:operation soapAction="http://tempuri.org/LoadEmployeesTransSelection_Where" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadSettingUserAccess_Where">
+      <soap12:operation soapAction="http://tempuri.org/LoadSettingUserAccess_Where" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DELETESettingUserAccess_WHERE">
+      <soap12:operation soapAction="http://tempuri.org/DELETESettingUserAccess_WHERE" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SettingUserAccess_SaveRecord">
+      <soap12:operation soapAction="http://tempuri.org/SettingUserAccess_SaveRecord" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CountCommuterAccounts_Where">
+      <soap12:operation soapAction="http://tempuri.org/CountCommuterAccounts_Where" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CountCommuterAccounts_Today">
+      <soap12:operation soapAction="http://tempuri.org/CountCommuterAccounts_Today" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PassengerCounts_Today">
+      <soap12:operation soapAction="http://tempuri.org/PassengerCounts_Today" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadCommuterAccounts_Where">
+      <soap12:operation soapAction="http://tempuri.org/LoadCommuterAccounts_Where" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadCommuterAccounts_Where_JSON">
+      <soap12:operation soapAction="http://tempuri.org/LoadCommuterAccounts_Where_JSON" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CommuterAccounts_SaveRecord">
+      <soap12:operation soapAction="http://tempuri.org/CommuterAccounts_SaveRecord" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadRFIDSetting_Where">
+      <soap12:operation soapAction="http://tempuri.org/LoadRFIDSetting_Where" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RFIDSetting_SaveRecord">
+      <soap12:operation soapAction="http://tempuri.org/RFIDSetting_SaveRecord" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ScannedAdsCount">
+      <soap12:operation soapAction="http://tempuri.org/ScannedAdsCount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RewardsTotal">
+      <soap12:operation soapAction="http://tempuri.org/RewardsTotal" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadStationCrownVolume_Where_JSON">
+      <soap12:operation soapAction="http://tempuri.org/LoadStationCrownVolume_Where_JSON" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadRewards_Where_JSON">
+      <soap12:operation soapAction="http://tempuri.org/LoadRewards_Where_JSON" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Rewards_SaveRecord">
+      <soap12:operation soapAction="http://tempuri.org/Rewards_SaveRecord" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TravelHistory_SaveRecord">
+      <soap12:operation soapAction="http://tempuri.org/TravelHistory_SaveRecord" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="NyxSoft_AMS_ServicesHttpGet" type="tns:NyxSoft_AMS_ServicesHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="LoadDaysLeft_Where">
+      <http:operation location="/LoadDaysLeft_Where" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadUserInfo_PerUserID">
+      <http:operation location="/LoadUserInfo_PerUserID" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UserInformation_SaveRecord">
+      <http:operation location="/UserInformation_SaveRecord" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UserChangePassword_SaveRecord">
+      <http:operation location="/UserChangePassword_SaveRecord" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserStatus">
+      <http:operation location="/GetUserStatus" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetUserStatus">
+      <http:operation location="/SetUserStatus" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteRecord_RecordID">
+      <http:operation location="/DeleteRecord_RecordID" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadEmployeesTransSelection_Where">
+      <http:operation location="/LoadEmployeesTransSelection_Where" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadSettingUserAccess_Where">
+      <http:operation location="/LoadSettingUserAccess_Where" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DELETESettingUserAccess_WHERE">
+      <http:operation location="/DELETESettingUserAccess_WHERE" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SettingUserAccess_SaveRecord">
+      <http:operation location="/SettingUserAccess_SaveRecord" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CountCommuterAccounts_Where">
+      <http:operation location="/CountCommuterAccounts_Where" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CountCommuterAccounts_Today">
+      <http:operation location="/CountCommuterAccounts_Today" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PassengerCounts_Today">
+      <http:operation location="/PassengerCounts_Today" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadCommuterAccounts_Where">
+      <http:operation location="/LoadCommuterAccounts_Where" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadCommuterAccounts_Where_JSON">
+      <http:operation location="/LoadCommuterAccounts_Where_JSON" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="CommuterAccounts_SaveRecord">
+      <http:operation location="/CommuterAccounts_SaveRecord" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadRFIDSetting_Where">
+      <http:operation location="/LoadRFIDSetting_Where" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RFIDSetting_SaveRecord">
+      <http:operation location="/RFIDSetting_SaveRecord" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ScannedAdsCount">
+      <http:operation location="/ScannedAdsCount" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RewardsTotal">
+      <http:operation location="/RewardsTotal" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadStationCrownVolume_Where_JSON">
+      <http:operation location="/LoadStationCrownVolume_Where_JSON" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="LoadRewards_Where_JSON">
+      <http:operation location="/LoadRewards_Where_JSON" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="Rewards_SaveRecord">
+      <http:operation location="/Rewards_SaveRecord" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TravelHistory_SaveRecord">
+      <http:operation location="/TravelHistory_SaveRecord" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="NyxSoft_AMS_ServicesHttpPost" type="tns:NyxSoft_AMS_ServicesHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="LoadDaysLeft_Where">
+      <http:operation location="/LoadDaysLeft_Where" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadUserInfo_PerUserID">
+      <http:operation location="/LoadUserInfo_PerUserID" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UserInformation_SaveRecord">
+      <http:operation location="/UserInformation_SaveRecord" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UserChangePassword_SaveRecord">
+      <http:operation location="/UserChangePassword_SaveRecord" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserStatus">
+      <http:operation location="/GetUserStatus" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetUserStatus">
+      <http:operation location="/SetUserStatus" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteRecord_RecordID">
+      <http:operation location="/DeleteRecord_RecordID" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadEmployeesTransSelection_Where">
+      <http:operation location="/LoadEmployeesTransSelection_Where" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadSettingUserAccess_Where">
+      <http:operation location="/LoadSettingUserAccess_Where" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DELETESettingUserAccess_WHERE">
+      <http:operation location="/DELETESettingUserAccess_WHERE" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SettingUserAccess_SaveRecord">
+      <http:operation location="/SettingUserAccess_SaveRecord" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CountCommuterAccounts_Where">
+      <http:operation location="/CountCommuterAccounts_Where" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CountCommuterAccounts_Today">
+      <http:operation location="/CountCommuterAccounts_Today" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PassengerCounts_Today">
+      <http:operation location="/PassengerCounts_Today" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadCommuterAccounts_Where">
+      <http:operation location="/LoadCommuterAccounts_Where" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadCommuterAccounts_Where_JSON">
+      <http:operation location="/LoadCommuterAccounts_Where_JSON" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="CommuterAccounts_SaveRecord">
+      <http:operation location="/CommuterAccounts_SaveRecord" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadRFIDSetting_Where">
+      <http:operation location="/LoadRFIDSetting_Where" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RFIDSetting_SaveRecord">
+      <http:operation location="/RFIDSetting_SaveRecord" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ScannedAdsCount">
+      <http:operation location="/ScannedAdsCount" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RewardsTotal">
+      <http:operation location="/RewardsTotal" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadStationCrownVolume_Where_JSON">
+      <http:operation location="/LoadStationCrownVolume_Where_JSON" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="LoadRewards_Where_JSON">
+      <http:operation location="/LoadRewards_Where_JSON" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="Rewards_SaveRecord">
+      <http:operation location="/Rewards_SaveRecord" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TravelHistory_SaveRecord">
+      <http:operation location="/TravelHistory_SaveRecord" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="NyxSoft_AMS_Services">
+    <wsdl:port name="NyxSoft_AMS_ServicesSoap" binding="tns:NyxSoft_AMS_ServicesSoap">
+      <soap:address location="http://localhost:85/NyxSoft_TARALRT_Services.asmx" />
+    </wsdl:port>
+    <wsdl:port name="NyxSoft_AMS_ServicesSoap12" binding="tns:NyxSoft_AMS_ServicesSoap12">
+      <soap12:address location="http://localhost:85/NyxSoft_TARALRT_Services.asmx" />
+    </wsdl:port>
+    <wsdl:port name="NyxSoft_AMS_ServicesHttpGet" binding="tns:NyxSoft_AMS_ServicesHttpGet">
+      <http:address location="http://localhost:85/NyxSoft_TARALRT_Services.asmx" />
+    </wsdl:port>
+    <wsdl:port name="NyxSoft_AMS_ServicesHttpPost" binding="tns:NyxSoft_AMS_ServicesHttpPost">
+      <http:address location="http://localhost:85/NyxSoft_TARALRT_Services.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

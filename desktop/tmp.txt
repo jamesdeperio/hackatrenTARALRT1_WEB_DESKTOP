@@ -1,0 +1,451 @@
+//断开连接
+        [DllImport(PUBLIC_COM_PATH, CharSet = CharSet.Ansi)]
+public static extern int Net_DisconnectScanner();
+
+//==============================设备控制命令==============================
+//设置波特率
+        [DllImport(PUBLIC_COM_PATH, CharSet = CharSet.Ansi)]
+public static extern int Net_SetBaudRate(SOCKET hSocket, int nBaudRate);
+
+//读取版本号
+        [DllImport(PUBLIC_COM_PATH, CharSet = CharSet.Ansi)]
+public static extern int Net_GetReaderVersion(SOCKET hSocket, WORD *wHardVer, WORD  *wSoftVer);
+
+//设定输出功率
+        [DllImport(PUBLIC_COM_PATH, CharSet = CharSet.Ansi)]
+public static extern int Net_SetOutputPower(SOCKET hSocket, int nPower);
+
+//设定工作频率
+        [DllImport(PUBLIC_COM_PATH, CharSet = CharSet.Ansi)]
+public static extern int Net_SetFrequency(SOCKET hSocket, int Min_Frequency, int Max_Frequency);
+
+//获得读写器工作频率范围
+        [DllImport(PUBLIC_COM_PATH, CharSet = CharSet.Ansi)]
+public static extern int Net_GetFrequencyRange(SOCKET hSocket, BYTE *Frequency);
+
+//读取读写器基本工作参数
+        [DllImport(PUBLIC_COM_PATH, CharSet = CharSet.Ansi)]
+public static extern int Net_ReadBasicParam(SOCKET hSocket, ReaderBasicParam *pParam);
+
+//设置读写器基本工作参数
+        [DllImport(PUBLIC_COM_PATH, CharSet = CharSet.Ansi)]
+public static extern int Net_WriteBasicParam(SOCKET hSocket, ReaderBasicParam *pParam);
+
+//读取读写器自动工作参数
+        [DllImport(PUBLIC_COM_PATH, CharSet = CharSet.Ansi)]
+public static extern int Net_ReadAutoParam(SOCKET hSocket, ReaderAutoParam *pParam);
+
+//设置读写器自动工作参数
+        [DllImport(PUBLIC_COM_PATH, CharSet = CharSet.Ansi)]
+public static extern int Net_WriteAutoParam(SOCKET hSocket, ReaderAutoParam *pParam);
+
+//设置调制度
+        [DllImport(PUBLIC_COM_PATH, CharSet = CharSet.Ansi)]
+public static extern int Net_SetModDepth(SOCKET hSocket, int ModDepth);
+
+//获得调制度
+        [DllImport(PUBLIC_COM_PATH, CharSet = CharSet.Ansi)]
+public static extern int Net_GetModDepth(SOCKET hSocket, int *ModDepth);
+
+//选择天线
+        [DllImport(PUBLIC_COM_PATH, CharSet = CharSet.Ansi)]
+public static extern int Net_SetAntenna(SOCKET hSocket, int Antenna);
+
+//恢复读写器出厂参数
+        [DllImport(PUBLIC_COM_PATH, CharSet = CharSet.Ansi)]
+public static extern int Net_ReadFactoryParameter(SOCKET hSocket);
+
+//复位读写器
+        [DllImport(PUBLIC_COM_PATH, CharSet = CharSet.Ansi)]
+public static extern int Net_Reboot(SOCKET hSocket);
+
+//停止/启动读写器自动模式
+        [DllImport(PUBLIC_COM_PATH, CharSet = CharSet.Ansi)]
+public static extern int Net_AutoMode(SOCKET hSocket,int Mode);
+
+//ATA检测读取ID标签
+        [DllImport(PUBLIC_COM_PATH, CharSet = CharSet.Ansi)]
+public static extern int Net_ATA_ListTagID(SOCKET hSocket, BYTE *btID, int *nCounter);
+
+//清除内存
+        [DllImport(PUBLIC_COM_PATH, CharSet = CharSet.Ansi)]
+public static extern int Net_ClearTagMemory(SOCKET hSocket);
+
+//设置时间
+        [DllImport(PUBLIC_COM_PATH, CharSet = CharSet.Ansi)]
+public static extern int Net_SetReaderTime(SOCKET hSocket, ReaderDate time);
+
+//获得时间
+        [DllImport(PUBLIC_COM_PATH, CharSet = CharSet.Ansi)]
+public static extern int Net_GetReaderTime(SOCKET hSocket, ReaderDate *time);
+
+//设置标签过滤器
+        [DllImport(PUBLIC_COM_PATH, CharSet = CharSet.Ansi)]
+public static extern int Net_SetReportFilter(SOCKET hSocket, int ptr, int len, BYTE *mask);
+
+//获得标签过滤器
+        [DllImport(PUBLIC_COM_PATH, CharSet = CharSet.Ansi)]
+public static extern int Net_GetReportFilter(SOCKET hSocket, int *ptr, int *len, BYTE *mask);
+
+//增加名单
+        [DllImport(PUBLIC_COM_PATH, CharSet = CharSet.Ansi)]
+public static extern int Net_AddLableID(SOCKET hSocket, int listlen, int datalen, BYTE * data);
+
+//删除名单
+        [DllImport(PUBLIC_COM_PATH, CharSet = CharSet.Ansi)]
+public static extern int Net_DelLableID(SOCKET hSocket, int listlen, int datalen, BYTE * data);
+
+
+//获得名单
+        [DllImport(PUBLIC_COM_PATH, CharSet = CharSet.Ansi)]
+public static extern int Net_GetLableID(SOCKET hSocket, int startaddr, int listlen, int *relistlen, int *taglen, BYTE * data);
+
+//获得记录
+        [DllImport(PUBLIC_COM_PATH, CharSet = CharSet.Ansi)]
+public static extern int Net_GetRecord(SOCKET hSocket, ReaderDate *stime, ReaderDate *etime, int startaddr, int listlen, int *relistlen, int *taglen, BYTE * data);
+
+//删除全部记录
+        [DllImport(PUBLIC_COM_PATH, CharSet = CharSet.Ansi)]
+public static extern int Net_DeleteAllRecord(SOCKET hSocket);
+
+//立即通知
+        [DllImport(PUBLIC_COM_PATH, CharSet = CharSet.Ansi)]
+public static extern int Net_ReportNow(SOCKET hSocket);
+
+//获得标签记录
+        [DllImport(PUBLIC_COM_PATH, CharSet = CharSet.Ansi)]
+public static extern int Net_GetTagInfo(SOCKET hSocket, int straddr, BYTE Counter, BYTE* len, BYTE* Data);
+
+//设置读写器ID
+        [DllImport(PUBLIC_COM_PATH, CharSet = CharSet.Ansi)]
+public static extern int Net_SetReaderID(SOCKET hSocket, BYTE *ReaderID);
+
+//获得读写器ID
+        [DllImport(PUBLIC_COM_PATH, CharSet = CharSet.Ansi)]
+public static extern int Net_GetReaderID(SOCKET hSocket, BYTE *ReaderID);
+
+
+//==============================网络命令==============================
+//设置读写器IP地址
+[DllImport(PUBLIC_COM_PATH, CharSet = CharSet.Ansi)]
+public static extern int Net_SetReaderNetwork(SOCKET hSocket, BYTE IP_Address[4], int Port, BYTE Mask[4], BYTE Gateway[4]);
+
+//获得读写器IP地址
+[DllImport(PUBLIC_COM_PATH, CharSet = CharSet.Ansi)]
+public static extern int Net_GetReaderNetwork(SOCKET hSocket, BYTE *IP_Address, int *Port, BYTE *Mask, BYTE *Gateway);
+
+//设置读写器MAC地址
+[DllImport(PUBLIC_COM_PATH, CharSet = CharSet.Ansi)]
+public static extern int Net_SetReaderMAC(SOCKET hSocket, BYTE MAC[6]);
+
+//获得读写器MAC地址
+[DllImport(PUBLIC_COM_PATH, CharSet = CharSet.Ansi)]
+public static extern int Net_GetReaderMAC(SOCKET hSocket, BYTE *MAC);
+
+//==============================IO命令==============================
+//设置读写器继电器状态
+[DllImport(PUBLIC_COM_PATH, CharSet = CharSet.Ansi)]
+public static extern int Net_SetRelay(SOCKET hSocket, int relay);
+
+//获得读写器继电器状态
+[DllImport(PUBLIC_COM_PATH, CharSet = CharSet.Ansi)]
+public static extern int Net_GetRelay(SOCKET hSocket, int *relay);
+
+//==============================ISO-6B数据读写命令==============================
+//检测标签存在
+[DllImport(PUBLIC_COM_PATH, CharSet = CharSet.Ansi)]
+public static extern int Net_ISO6B_LabelPresent(SOCKET hSocket, int *nCounter);
+
+//读取ISO6B标签ID号
+[DllImport(PUBLIC_COM_PATH, CharSet = CharSet.Ansi)]
+public static extern int Net_ISO6B_ReadLabelID(SOCKET hSocket, BYTE *IDBuffer, int *nCounter);
+
+//列出选定标签
+[DllImport(PUBLIC_COM_PATH, CharSet = CharSet.Ansi)]
+public static extern int Net_ISO6B_ListSelectedID(SOCKET hSocket, int Cmd, int ptr, BYTE Mask, BYTE *Data, BYTE *IDBuffer, int *nCounter);
+
+//读一块数据
+[DllImport(PUBLIC_COM_PATH, CharSet = CharSet.Ansi)]
+public static extern int Net_ISO6B_ReadByteBlock(SOCKET hSocket, BYTE *IDBuffer, BYTE ptr, BYTE len,BYTE *Data);
+
+//一次写4字节数据
+[DllImport(PUBLIC_COM_PATH, CharSet = CharSet.Ansi)]
+public static extern int Net_ISO6B_WriteByteBlock(SOCKET hSocket, BYTE *IDBuffer, BYTE ptr, BYTE len, BYTE *Data);
+
+//一次写一字节数据
+[DllImport(PUBLIC_COM_PATH, CharSet = CharSet.Ansi)]
+public static extern int Net_ISO6B_WriteAByte(SOCKET hSocket, BYTE *IDBuffer, BYTE ptr, BYTE len, BYTE *Data);
+
+//置写保护状态
+[DllImport(PUBLIC_COM_PATH, CharSet = CharSet.Ansi)]
+public static extern int Net_ISO6B_WriteProtect(SOCKET hSocket, BYTE *IDBuffer, BYTE ptr);
+
+//读写保护状态
+[DllImport(PUBLIC_COM_PATH, CharSet = CharSet.Ansi)]
+public static extern int Net_ISO6B_ReadWriteProtect(SOCKET hSocket, BYTE *IDBuffer, BYTE ptr, BYTE *Protected);
+
+//==============================EPC C1G2数据读写命令==============================
+//读取EPC1G2标签ID号
+[DllImport(PUBLIC_COM_PATH, CharSet = CharSet.Ansi)]
+public static extern int Net_EPC1G2_ReadLabelID(SOCKET hSocket, BYTE mem, int ptr, BYTE len, BYTE *mask, BYTE *IDBuffer, int *nCounter);
+
+//读一块数据
+[DllImport(PUBLIC_COM_PATH, CharSet = CharSet.Ansi)]
+public static extern int Net_EPC1G2_ReadWordBlock(SOCKET hSocket, BYTE EPC_WORD, BYTE *IDBuffer, BYTE mem, BYTE ptr, BYTE len, BYTE *Data, BYTE *AccessPassword);
+
+//写一块数据
+[DllImport(PUBLIC_COM_PATH, CharSet = CharSet.Ansi)]
+public static extern int Net_EPC1G2_WriteWordBlock(SOCKET hSocket, BYTE EPC_WORD, BYTE *IDBuffer, BYTE mem, BYTE ptr, BYTE len, BYTE *Data, BYTE *AccessPassword);
+
+//设置读写保护状态
+[DllImport(PUBLIC_COM_PATH, CharSet = CharSet.Ansi)]
+public static extern int Net_EPC1G2_SetLock(SOCKET hSocket, BYTE EPC_WORD, BYTE *IDBuffer, BYTE mem, BYTE Lock, BYTE *AccessPassword);
+
+//擦除标签数据
+[DllImport(PUBLIC_COM_PATH, CharSet = CharSet.Ansi)]
+public static extern int Net_EPC1G2_EraseBlock(SOCKET hSocket, BYTE EPC_WORD, BYTE *IDBuffer, BYTE mem, BYTE ptr, BYTE len);
+
+//永久休眠标签
+[DllImport(PUBLIC_COM_PATH, CharSet = CharSet.Ansi)]
+public static extern int Net_EPC1G2_KillTag(SOCKET hSocket, BYTE EPC_WORD, BYTE *IDBuffer, BYTE *KillPassword);
+
+//写EPC
+[DllImport(PUBLIC_COM_PATH, CharSet = CharSet.Ansi)]
+public static extern int Net_EPC1G2_WriteEPC(SOCKET hSocket,BYTE len, BYTE *Data, BYTE *AccessPassword);
+
+//块锁命令
+[DllImport(PUBLIC_COM_PATH, CharSet = CharSet.Ansi)]
+public static extern int Net_EPC1G2_BlockLock(SOCKET hSocket, BYTE EPC_WORD, BYTE *IDBuffer, BYTE ptr, BYTE *AccessPassword);
+
+//EAS状态操作命令
+[DllImport(PUBLIC_COM_PATH, CharSet = CharSet.Ansi)]
+public static extern int Net_EPC1G2_ChangeEas(SOCKET hSocket, BYTE EPC_WORD, BYTE *IDBuffer, BYTE State, BYTE *AccessPassword);
+
+//EAS报警命令
+[DllImport(PUBLIC_COM_PATH, CharSet = CharSet.Ansi)]
+public static extern int Net_EPC1G2_EasAlarm(SOCKET hSocket);
+
+//读保护设置
+[DllImport(PUBLIC_COM_PATH, CharSet = CharSet.Ansi)]
+public static extern int Net_EPC1G2_ReadProtect(SOCKET hSocket,BYTE *AccessPassword, BYTE EPC_WORD, BYTE *IDBuffer);
+
+//复位读保护设置
+[DllImport(PUBLIC_COM_PATH, CharSet = CharSet.Ansi)]
+public static extern int Net_EPC1G2_RStreadProtect(SOCKET hSocket, BYTE *AccessPassword);
+
+//识别EPC同时读数据
+[DllImport(PUBLIC_COM_PATH, CharSet = CharSet.Ansi)]
+public static extern int Net_EPC1G2_ReadEPCandData(SOCKET hSocket, BYTE *EPC_WORD, BYTE *IDBuffer, BYTE mem, BYTE ptr, BYTE len, BYTE *Data, int Address);
+
+//设置用户区数据块读保护
+[DllImport(PUBLIC_COM_PATH, CharSet = CharSet.Ansi)]
+public static extern int Net_EPC1G2_BlockReadLock(SOCKET hSocket, BYTE EPC_WORD, BYTE *IDBuffer, BYTE Lock, BYTE *AccessPassword);
+
+//侦测标签
+[DllImport(PUBLIC_COM_PATH, CharSet = CharSet.Ansi)]
+public static extern int Net_EPC1G2_DetectTag(SOCKET hSocket);
+
+
+////////////////////////////////////////////////////////////////////////////////
+
+//修改读写器频率范围
+[DllImport(PUBLIC_COM_PATH, CharSet = CharSet.Ansi)]
+public static extern int ChangeFrequency(int hScanner, BYTE fre,int Address);
+
+//修改读写器频率范围
+[DllImport(PUBLIC_COM_PATH, CharSet = CharSet.Ansi)]
+public static extern int Net_ChangeFrequency(SOCKET hSocket, BYTE fre);
+
+//设置硬件版本
+[DllImport(PUBLIC_COM_PATH, CharSet = CharSet.Ansi)]
+public static extern int SetHardVersion(int hScanner, int wHardVer,int wHardVer2,int Address);
+
+//修改读写器硬件版本号
+[DllImport(PUBLIC_COM_PATH, CharSet = CharSet.Ansi)]
+public static extern int Net_SetHardVersion(SOCKET hSocket, int wHardVer,int wHardVer2);
+
+//设置读写器出厂基本工作参数
+[DllImport(PUBLIC_COM_PATH, CharSet = CharSet.Ansi)]
+public static extern int WriteFactoryBasicParam(int hScanner, ReaderBasicParam * pParam,int Address);
+
+//设置读写器出厂自动工作参数
+[DllImport(PUBLIC_COM_PATH, CharSet = CharSet.Ansi)]
+public static extern int WriteFactoryAutoParam(int hScanner, ReaderAutoParam * pParam,int Address);
+
+//设置读写器基本工作参数
+[DllImport(PUBLIC_COM_PATH, CharSet = CharSet.Ansi)]
+public static extern int Net_WriteFactoryBasicParam(SOCKET hSocket, ReaderBasicParam *pParam);
+
+//设置读写器自动工作参数
+[DllImport(PUBLIC_COM_PATH, CharSet = CharSet.Ansi)]
+public static extern int Net_WriteFactoryAutoParam(SOCKET hSocket, ReaderAutoParam *pParam);
+
+
+
+        
+
+
+
+
+        
+
+
+        [DllImport("Reader2100DLL.dll")]
+        public static extern int Net_DisconnectScanner();
+        //获得读写器版本号        
+        [DllImport("Reader2100DLL.dll")]
+        public static extern int GetReaderVersion(int hScanner, ref int hardver, ref int Softver, int Address);
+        [DllImport("Reader2100DLL.dll")]
+        public static extern int Net_GetReaderVersion(int hSocket, ref int hardver, ref int Softver);
+        //选择工作天线        
+        [DllImport("Reader2100DLL.dll")]
+        public static extern int SetAntenna(int hScanner, int m_antenna_sel, int Address);
+        [DllImport("Reader2100DLL.dll")]
+        public static extern int Net_SetAntenna(int hSocket, int m_antenna_sel);
+
+        //设置读写器继电器状态
+        [DllImport("Reader2100DLL.dll")]
+        public static extern int SetRelay(int hScanner, int Relay, int Address);
+        [DllImport("Reader2100DLL.dll")]
+        public static extern int Net_SetRelay(int hSocket, int Relay);
+
+        //设定输出功率
+        [DllImport("Reader2100DLL.dll")]
+        public static extern int SetOutputPower(int hScanner, int nPower1, int Address);
+        [DllImport("Reader2100DLL.dll")]
+        public static extern int Net_SetOutputPower(int hSocket, int nPower1);
+
+        //获取读写器基本工作参数
+        [DllImport("Reader2100DLL.dll")]
+        public static extern int ReadBasicParam(int hScanner, ref ReaderBasicParam pParam, int Address);
+        [DllImport("Reader2100DLL.dll")]
+        public static extern int Net_ReadBasicParam(int hSocket, ref ReaderBasicParam pParam);
+
+        //设置读写器基本工作参数
+        [DllImport("Reader2100DLL.dll")]
+        public static extern int WriteBasicParam(int hScanner, ref ReaderBasicParam pParam, int Address);
+        [DllImport("Reader2100DLL.dll")]
+        public static extern int Net_WriteBasicParam(int hSocket, ref ReaderBasicParam pParam);
+
+        //读取读写器自动工作参数
+        [DllImport("Reader2100DLL.dll")]
+        public static extern int ReadAutoParam(int hScanner, ref ReaderAutoParam pParam, int Address);
+        [DllImport("Reader2100DLL.dll")]
+        public static extern int Net_ReadAutoParam(int hSocket, ref ReaderAutoParam pParam);
+
+        //设置读写器自动工作参数
+        [DllImport("Reader2100DLL.dll")]
+        public static extern int WriteAutoParam(int hScanner, ref ReaderAutoParam pParam, int Address);
+        [DllImport("Reader2100DLL.dll")]
+        public static extern int Net_WriteAutoParam(int hSocket, ref ReaderAutoParam pParam);
+
+        //读取读写器出厂参数
+        [DllImport("Reader2100DLL.dll")]
+        public static extern int ReadFactoryParameter(int hScanner);
+        [DllImport("Reader2100DLL.dll")]
+        public static extern int Net_ReadFactoryParameter(int hSocket);
+
+        //复位读写器
+        [DllImport("Reader2100DLL.dll")]
+        public static extern int Reboot(int hScanner, int Address);
+        [DllImport("Reader2100DLL.dll")]
+        public static extern int Net_Reboot(int hSocket);
+
+        //启动/停止读写器自动模式
+        [DllImport("Reader2100DLL.dll")]
+        public static extern int AutoMode(int hScanner, int mode, int Address);
+        [DllImport("Reader2100DLL.dll")]
+        public static extern int Net_AutoMode(int hSocket, int mode);
+
+
+        //设置时间
+        [DllImport("Reader2100DLL.dll")]
+        public static extern int SetReaderTime(int hScanner, ReaderDate time, int Address);
+        [DllImport("Reader2100DLL.dll")]
+        public static extern int Net_SetReaderTime(int hSocket, ReaderDate time);
+
+        //获得时间
+        [DllImport("Reader2100DLL.dll")]
+        public static extern int GetReaderTime(int hScanner, ref ReaderDate time, int Address);
+        [DllImport("Reader2100DLL.dll")]
+        public static extern int Net_GetReaderTime(int hSocket, ref ReaderDate time);
+
+        //设置标签过滤器
+        [DllImport("Reader2100DLL.dll")]
+        public static extern int SetReportFilter(int hScanner, int len, int ptr, byte[] mask, int Address);
+        [DllImport("Reader2100DLL.dll")]
+        public static extern int Net_SetReportFilter(int hSocket, int len, int Ptr, byte[] mask);
+
+        //获得标签过滤器
+        [DllImport("Reader2100DLL.dll")]
+        public static extern int GetReportFilter(int hScanner, ref int len, ref int ptr, byte[] mask, int address);
+        [DllImport("Reader2100DLL.dll")]
+        public static extern int Net_GetReportFilter(int hSocket, ref int len, ref int ptr, byte[] mask);
+
+        //获得读写器ID
+        [DllImport("Reader2100DLL.dll")]
+        public static extern int GetReaderID(int hScanner, byte[] ReaderID, int Address);
+        [DllImport("Reader2100DLL.dll")]
+        public static extern int Net_GetReaderID(int hSocket, byte[] ReaderID);
+
+        //==============================网络命令==============================
+        //设置读写器IP地址
+        [DllImport("Reader2100DLL.dll")]
+        public static extern int SetReaderNetwork(int hScanner, byte[] IP_Address, int Port, byte[] Mask, byte[] Gateway);
+        [DllImport("Reader2100DLL.dll")]
+        public static extern int Net_SetReaderNetwork(int hSocket, byte[] IP_Address, int Port, byte[] Mask, byte[] Gateway);
+
+        //获得读写器IP地址
+        [DllImport("Reader2100DLL.dll")]
+        public static extern int GetReaderNetwork(int hScanner, byte[] IP_Address, ref int Port, byte[] Mask, byte[] Gateway);
+        [DllImport("Reader2100DLL.dll")]
+        public static extern int Net_GetReaderNetwork(int hSocket, byte[] IP_Address, ref int Port, byte[] Mask, byte[] Gateway);
+
+        //设置读写器MAC地址
+        [DllImport("Reader2100DLL.dll")]
+        public static extern int SetReaderMAC(int hScanner, byte[] MAC);
+        [DllImport("Reader2100DLL.dll")]
+        public static extern int Net_SetReaderMAC(int hSocket, byte[] MAC);
+
+        //获得读写器MAC地址
+        [DllImport("Reader2100DLL.dll")]
+        public static extern int GetReaderMAC(int hScanner, byte[] MAC);
+        [DllImport("Reader2100DLL.dll")]
+        public static extern int Net_GetReaderMAC(int hSocket, byte[] MAC);
+        #endregion
+
+        #region EPCC1G2
+        //==============================EPCC1G2数据读写命令==============================
+        //识别标签的EPC
+
+        [DllImport("Reader2100DLL.dll")]
+        public static extern int EPC1G2_ReadLabelID(int hScanner, int mem, int ptr, int len, byte[] mask, byte[] IDBuffer, ref int nCounter, int Address);
+        [DllImport("Reader2100DLL.dll")]
+        public static extern int Net_EPC1G2_ReadLabelID(int hSocket, int mem, int ptr, int len, byte[] mask, byte[] IDBuffer, ref int nCounter);
+        //读一块数据
+        [DllImport("Reader2100DLL.dll")]
+        public static extern int EPC1G2_ReadWordBlock(int hScanner, byte EPC_WORD, byte[] IDBuffer, byte mem, byte ptr, byte len, byte[] Data, byte[] AccessPassword, int Address);
+        [DllImport("Reader2100DLL.dll")]
+        public static extern int Net_EPC1G2_ReadWordBlock(int hSocket, byte EPC_WORD, byte[] IDBuffer, byte mem, byte ptr, byte len, byte[] Data, byte[] AccessPassword);
+
+        //写一块数据
+        [DllImport("Reader2100DLL.dll")]
+        public static extern int EPC1G2_WriteWordBlock(int hScanner, byte EPC_WORD, byte[] IDBuffer, byte mem, byte ptr, byte len, byte[] Data, byte[] AccessPassword, int Address);
+        [DllImport("Reader2100DLL.dll")]
+        public static extern int Net_EPC1G2_WriteWordBlock(int hSocket, byte EPC_WORD, byte[] IDBuffer, byte mem, byte ptr, byte len, byte[] Data, byte[] AccessPassword);
+        //设置读写保护状态
+        [DllImport("Reader2100DLL.dll")]
+        public static extern int EPC1G2_SetLock(int hScanner, byte EPC_WORD, byte[] IDBuffer, byte mem, byte Lock, byte[] AccessPassword, int Address);
+        [DllImport("Reader2100DLL.dll")]
+        public static extern int Net_EPC1G2_SetLock(int hSocket, byte EPC_WORD, byte[] IDBuffer, byte mem, byte Lock, byte[] AccessPassword);
+        //永久休眠标签
+        [DllImport("Reader2100DLL.dll")]
+        public static extern int EPC1G2_KillTag(int hScanner, byte EPC_WORD, byte[] IDBuffer, byte[] KillPassword, int Address);
+        [DllImport("Reader2100DLL.dll")]
+        public static extern int Net_EPC1G2_KillTag(int hSocket, byte EPC_WORD, byte[] IDBuffer, byte[] KillPassword);
+        //写EPC
+        [DllImport("Reader2100DLL.dll")]
+        public static extern int EPC1G2_WriteEPC(int hScanner, byte len, byte[] Data, byte[] AccessPassword, int Address);
+        [DllImport("Reader2100DLL.dll")]
+        public static extern int Net_EPC1G2_WriteEPC(int hSocket, byte len, byte[] Data, byte[] AccessPassword);
+

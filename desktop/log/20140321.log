@@ -1,0 +1,12 @@
+¡¾10:34:50:765¡¿---- PacketNetSnd:UDP Send:40 03 0F 00 AE 
+¡¾10:34:50:906¡¿---- write packet error
+¡¾10:34:50:921¡¿---- PacketNetSnd:UDP Send:40 03 0F 00 AE 
+¡¾10:34:51:062¡¿---- write packet error
+¡¾10:34:51:062¡¿---- PacketNetSnd:UDP Send:40 03 0F 00 AE 
+¡¾10:34:51:218¡¿---- write packet error
+¡¾10:43:34:953¡¿---- PacketNetSnd:UDP Send:40 03 0F 00 AE 
+¡¾10:43:34:953¡¿---- PacketNetRcv:UDP Recv:F0 02 0F FF 
+¡¾10:43:34:953¡¿---- ==============================
+¡¾11:21:33:437¡¿---- PacketNetSnd:UDP Send:40 03 0F 00 AE 
+¡¾11:21:33:437¡¿---- PacketNetRcv:UDP Recv:F0 02 0F FF 
+¡¾11:21:33:437¡¿---- ==============================

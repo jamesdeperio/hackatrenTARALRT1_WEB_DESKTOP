@@ -1,0 +1,189 @@
+﻿@model NXYSOFT_RMS.Models.WarehouseModel
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+@if (bool.Parse(Session["WarehouseEditAccess"].ToString()) == true)
+{
+    <h2>Warehouse - Edit </h2>
+}
+else if (bool.Parse(Session["WarehouseViewAccess"].ToString()) == true)
+{
+    <h2>Warehouse - View </h2>
+}
+
+
+@using (Html.BeginForm("Update", "Warehouse"))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.CurrentID)
+    @Html.HiddenFor(model => model.fldCode)
+
+
+    <div class="form-horizontal">
+        <div class="form-group">
+            @Html.LabelFor(model => model.fldName, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.fldName, 1, 150, new { @onkeyup = "CheckForPicKeyUp()", @class = "textbox", @style = "width:50%;", onblur = "LostFocus('fldName')" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.fldRemarks, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.fldRemarks, new { @class = "textbox", @style = "width:50%;" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.fldIsActive, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div style="font-weight:bold;color:#373f81">@Html.EditorFor(model => model.fldIsActive)</div>
+            </div>
+        </div>
+        
+       
+        <hr />
+
+        @if (bool.Parse(Session["WarehouseEditAccess"].ToString()) == true)
+        {
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <a class="btn btn-primary" data-toggle="modal" data-target=".UpdateModal">Update</a>
+                </div>
+            </div>
+        }
+
+        
+        <div class="modal fade UpdateModal" id="basic" tabindex="-1" role="basic" aria-hidden="true" data-backdrop="static" data-keyboard="false" style="display: none;">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>                        
+                        <div class="InfoIcon"><h4 class="modal-title">Save Confirmation</h4></div>
+                    </div>
+                    <div class="modal-body">
+                        Are you sure you want to update this record?
+                    </div>
+
+                    <div class="modal-footer">
+                        <button id="btnSaveProceed" name="btnSaveProceed" type="button" class="btn btn-primary" onclick="SavedRecord()">Update</button>                        
+                        <button data-dismiss="modal" type="button" class="btn btn-primary">Cancel</button>
+
+                    </div>
+
+
+
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade SystemMsgErrorModal" id="basic" tabindex="-1" role="basic" aria-hidden="true" data-backdrop="static" data-keyboard="false" style="display: none;">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <div class="modal-header modal-header-warning">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                        <div class="ErrorIcon"><h4 class="modal-title">System Message</h4></div>
+                    </div>
+                    <div class="modal-body">
+                        <div class="modalmessage"></div>
+                    </div>
+                    <div class="modal-footer">
+                        <button data-dismiss="modal" type="button" class="btn btn-warning">Ok</button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade SystemMsgSuccessModal" id="basic" tabindex="-1" role="basic" aria-hidden="true" data-backdrop="static" data-keyboard="false" style="display: none;">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <div class="modal-header modal-header-success ">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                        <div class="CheckIcon"><h4 class="modal-title">System Message</h4></div>
+                    </div>
+                    <div class="modal-body">
+                        <div class="modalmessage"></div>
+                    </div>
+                    <div class="modal-footer">
+                        <button data-dismiss="modal" type="button" class="btn btn-success" onclick="location.href='@Url.Action("List", "Warehouse")'">Ok</button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+<hr />
+<div>
+    @Html.ActionLink("Back to List", "List")
+</div>
+
+
+
+<script type="text/javascript">
+    getscreenresolution();
+
+    window.onresize = function () {
+        getscreenresolution();
+
+    }
+
+
+
+    function getscreenresolution() {
+
+        if ($(window).width() < 1160) {
+
+            document.getElementById('fldCode').style.width = "100%";
+            document.getElementById('fldName').style.width = "100%";
+            document.getElementById('fldRemarks').style.width = "100%";
+           
+
+        }
+        else {
+            document.getElementById('fldCode').style.width = "50%";
+            document.getElementById('fldName').style.width = "50%";
+            document.getElementById('fldRemarks').style.width = "50%";
+          
+        }
+
+    }
+
+    function SavedRecord() {
+        $.ajax({
+            url: "/Warehouse/Update/",
+            dataType: "json",
+            cache: false,
+            type: 'GET',
+            data: { CurrentID: document.getElementById('CurrentID').value, fldCode: document.getElementById('fldCode').value, fldName: document.getElementById('fldName').value, fldRemarks: document.getElementById('fldRemarks').value, fldIsActive: document.getElementById('fldIsActive').checked},
+            success: function (result) {
+                $('.UpdateModal').modal('hide');
+                $('.modalmessage').text(result.msg);
+                if (result.Success) {
+                    $('.SystemMsgSuccessModal').modal('show');
+
+                } else {
+                    $('.SystemMsgErrorModal').modal('show');
+                    if (result.hasOwnProperty("Warehouse") > -1) {
+                        document.getElementById('fldName').style.borderColor = "darkred";
+                    }
+
+                }
+
+
+            },
+
+        });
+    }
+
+
+   
+
+    function LostFocus(id)
+    {      
+        document.getElementById(id).style.borderColor = "";
+    }
+
+
+</script>

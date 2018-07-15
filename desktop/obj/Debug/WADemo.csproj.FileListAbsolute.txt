@@ -1,0 +1,49 @@
+D:\App\Reader\Reader626\ReaderC#WDemo\WADemo\obj\Debug\ResolveAssemblyReference.cache
+D:\App\Reader\Reader626\ReaderC#WDemo\WADemo\obj\Debug\WADemo.Properties.Resources.resources
+D:\App\Reader\Reader626\ReaderC#WDemo\WADemo\obj\Debug\ReaderDemo.MainForm.resources
+D:\App\Reader\Reader626\ReaderC#WDemo\WADemo\obj\Debug\WADemo.csproj.GenerateResource.Cache
+D:\App\Reader\Reader626\ReaderC#WDemo\WADemo\obj\Debug\WADemo.exe
+D:\App\Reader\Reader626\ReaderC#WDemo\WADemo\obj\Debug\WADemo.pdb
+D:\App\Reader\Reader626\ReaderC#WDemo\WADemo\WADemo.exe
+D:\App\Reader\Reader626\ReaderC#WDemo\WADemo\WADemo.pdb
+G:\Product Information - VF-747\SDK\WADemo\obj\Debug\WADemo.exe
+G:\Product Information - VF-747\SDK\WADemo\obj\Debug\WADemo.pdb
+G:\Product Information - VF-747\SDK\WADemo\obj\Debug\ResolveAssemblyReference.cache
+G:\Product Information - VF-747\SDK\WADemo\obj\Debug\WADemo.Properties.Resources.resources
+G:\Product Information - VF-747\SDK\WADemo\obj\Debug\ReaderDemo.MainForm.resources
+G:\Product Information - VF-747\SDK\WADemo\obj\Debug\WADemo.csproj.GenerateResource.Cache
+G:\Product Information - VF-747\SDK\WADemo\WADemo.exe
+G:\Product Information - VF-747\SDK\WADemo\WADemo.pdb
+D:\Projects\_Other Projects\1FORTGUARD\SCHNEIDER\WADemo\obj\Debug\WADemo.exe
+D:\Projects\_Other Projects\1FORTGUARD\SCHNEIDER\WADemo\obj\Debug\WADemo.pdb
+D:\Projects\_Other Projects\1FORTGUARD\SCHNEIDER\WADemo\obj\Debug\ResolveAssemblyReference.cache
+D:\Projects\_Other Projects\1FORTGUARD\SCHNEIDER\WADemo\obj\Debug\ReaderDemo.MainForm.resources
+D:\Projects\_Other Projects\1FORTGUARD\SCHNEIDER\WADemo\obj\Debug\WADemo.csproj.GenerateResource.Cache
+D:\Projects\_Other Projects\1FORTGUARD\SCHNEIDER\WADemo\WADemo.exe
+D:\Projects\_Other Projects\1FORTGUARD\SCHNEIDER\WADemo\WADemo.pdb
+D:\Projects\_Other Projects\1FORTGUARD\SCHNEIDER\WADemo\obj\Debug\ReaderDemo.frmMain.resources
+D:\Projects\_Other Projects\1FORTGUARD\SCHNEIDER\WADemo\obj\Debug\ReaderDemo.Properties.Resources.resources
+D:\Projects\_Other Projects\1FORTGUARD\SCHNEIDER\WADemo\bin\WADemo.exe
+D:\Projects\_Other Projects\1FORTGUARD\SCHNEIDER\WADemo\bin\WADemo.pdb
+D:\Projects\_Other Projects\1FORTGUARD\SCHNEIDER\WADemo\bin\Debug\WADemo.exe
+D:\Projects\_Other Projects\1FORTGUARD\SCHNEIDER\WADemo\bin\Debug\WADemo.pdb
+D:\Projects\Docus\TaraLrt\WADemo\obj\Debug\WADemo.exe
+D:\Projects\Docus\TaraLrt\WADemo\obj\Debug\WADemo.pdb
+D:\Projects\Docus\TaraLrt\WADemo\bin\Debug\WADemo.exe
+D:\Projects\Docus\TaraLrt\WADemo\bin\Debug\WADemo.pdb
+D:\Projects\Docus\TaraLrt\WADemo\obj\Debug\ResolveAssemblyReference.cache
+D:\Projects\Docus\TaraLrt\WADemo\obj\Debug\ReaderDemo.frmMain.resources
+D:\Projects\Docus\TaraLrt\WADemo\obj\Debug\ReaderDemo.Properties.Resources.resources
+D:\Projects\Docus\TaraLrt\WADemo\obj\Debug\ReaderDemo.MainForm.resources
+D:\Projects\Docus\TaraLrt\WADemo\obj\Debug\WADemo.csproj.GenerateResource.Cache
+D:\Projects\Docus\TaraLrt\WADemo\bin\Debug\WADemo.exe.config
+C:\Users\Admin2\Desktop\TaraLrt\WADemo\obj\Debug\ReaderDemo.frmMain.resources
+C:\Users\Admin2\Desktop\TaraLrt\WADemo\obj\Debug\ReaderDemo.Properties.Resources.resources
+C:\Users\Admin2\Desktop\TaraLrt\WADemo\obj\Debug\ReaderDemo.MainForm.resources
+C:\Users\Admin2\Desktop\TaraLrt\WADemo\obj\Debug\WADemo.csproj.GenerateResource.Cache
+C:\Users\Admin2\Desktop\TaraLrt\WADemo\obj\Debug\WADemo.exe
+C:\Users\Admin2\Desktop\TaraLrt\WADemo\obj\Debug\WADemo.pdb
+C:\Users\Admin2\Desktop\TaraLrt\WADemo\bin\Debug\WADemo.exe.config
+C:\Users\Admin2\Desktop\TaraLrt\WADemo\bin\Debug\WADemo.exe
+C:\Users\Admin2\Desktop\TaraLrt\WADemo\bin\Debug\WADemo.pdb
+C:\Users\Admin2\Desktop\TaraLrt\WADemo\obj\Debug\WADemo.csprojResolveAssemblyReference.cache

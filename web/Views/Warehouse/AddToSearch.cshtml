@@ -1,0 +1,127 @@
+﻿@model NXYSOFT_RMS.Models.WarehouseModel
+
+@{
+    ViewBag.Title = "WarehouseEntry";
+}
+
+<h2>Warehouse - New </h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+
+        @Html.HiddenFor(model => model.fldCode,new {@id="WareCode" })
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.fldName, new { @class = "control-label col-md-3" })
+            <div class="col-md-9">
+                @Html.TextBoxFor(model => model.fldName, new { @class = "textbox", @style = "width:100%;", autofocus = "autofocus", onblur = "LostFocus('fldName')" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.fldRemarks, new { @class = "control-label col-md-3" })
+            <div class="col-md-9">
+                @Html.TextAreaFor(model => model.fldRemarks, new { @class = "textbox", @style = "width:100%;" })
+            </div>
+        </div>
+
+        <div class="modal fade UpdateModalToSearch" id="basic" tabindex="-1" role="basic" aria-hidden="true" data-backdrop="static" data-keyboard="false" style="display: none;">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                        <div class="InfoIcon"><h4 class="modal-title">Save Confirmation</h4></div>
+                    </div>
+                    <div class="modal-body">
+                        Are you sure you want to save this record?
+                    </div>
+
+                    <div class="modal-footer">
+                        <button id="btnSaveProceed" name="btnSaveProceed" type="button" class="btn btn-primary" onclick="SavedRecordToSearch()">Save</button>
+                        <button onclick="$('.UpdateModalToSearch').modal('hide');" type="button" class="btn btn-primary">Cancel</button>
+
+                    </div>
+
+
+
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade SystemMsgErrorModalToSearch" id="basic" tabindex="-1" role="basic" aria-hidden="true" data-backdrop="static" data-keyboard="false" style="display: none;">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <div class="modal-header modal-header-warning">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                        <div class="ErrorIcon"><h4 class="modal-title">System Message</h4></div>
+                    </div>
+                    <div class="modal-body">
+                        <div class="modalmessage"></div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" onclick="$('.SystemMsgErrorModalToSearch').modal('hide');">Close</button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade SystemMsgSuccessModalToSearch" id="basic" tabindex="-1" role="basic" aria-hidden="true" data-backdrop="static" data-keyboard="false" style="display: none;">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <div class="modal-header modal-header-success ">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                        <div class="CheckIcon"><h4 class="modal-title">System Message</h4></div>
+                    </div>
+                    <div class="modal-body">
+                        <div class="modalmessage"></div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" onclick="$('.SystemMsgSuccessModalToSearch').modal('hide'); $('.AddToSearchModal').modal('hide'); setTimeout(function () {  ViewSearchWarehouse(); }, 300); setTimeout(function () { ViewWarehouse(); }, 300); ">Ok</button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+
+<script type="text/javascript">
+
+    function SavedRecordToSearch() {
+        $.ajax({
+            url: "/Warehouse/Save/",
+            dataType: "json",
+            cache: false,
+            type: 'GET',
+            data: { fldCode: document.getElementById('WareCode').value, fldName: document.getElementById('fldName').value, fldRemarks: document.getElementById('fldRemarks').value, fldIsActive: true },
+            success: function (result) {
+                $('.UpdateModalToSearch').modal('hide');
+                $('.modalmessage').text(result.msg);
+                if (result.Success) {
+                    $('.SystemMsgSuccessModalToSearch').modal('show');
+
+                } else {
+                    $('.SystemMsgErrorModalToSearch').modal('show');
+                    if (result.hasOwnProperty("Warehouse") > -1) {
+                        document.getElementById('fldName').style.borderColor = "darkred";
+                    }
+                }
+
+
+            },
+
+        });
+    }
+  
+
+    function LostFocus(id)
+    {
+        document.getElementById(id).style.borderColor = "";
+    }
+
+
+</script>

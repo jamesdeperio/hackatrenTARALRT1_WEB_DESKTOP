@@ -1,0 +1,313 @@
+﻿@model NXYSOFT_RMS.Models.UserAccess
+
+@{
+    ViewBag.Title = "CompanyEntry";
+}
+
+<h2>Account Access - New </h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <div class="form-group">
+            @Html.LabelFor(model => model.fldAccessName, new { @class = "control-label col-md-2" })
+            <div class="col-md-5">
+                @Html.TextBoxFor(model => model.fldAccessName, new { @class = "textbox", @style = "width:100%;margin-left: 5px;", autofocus = "autofocus", onblur = "LostFocus('fldName')" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="control-label col-md-2"></div>
+            <div class="col-md-5" style="border: 1px solid #050329; border-radius: 4px; padding-left: 15px; padding-right: 15px; margin-left:15px;">
+                <div class="container pre-scrollable col-md-12">
+                    
+                        @for (int x = 0; x < ((IList<string>)Session["AddAccessModules"]).Count; x++)
+                {
+                    string[] MainMenus = ((IList<string>)Session["AddAccessModules"])[x].Split('-');
+
+                    if (MainMenus.Length == 3)
+                    {
+                                <ul>
+                                    <li>
+
+
+                                        @if (MainMenus[1].ToLower().Trim() == "true")
+                                        {                                            
+                                            <input type="checkbox" style="cursor: pointer;" checked id="@MainMenus[0].Trim().Replace("/","").Replace("(","").Replace(")","").Replace(" ","")" ><label for="option">@MainMenus[0].Trim()</label>
+                                            <ul>
+                                                @for (int xy = 0; xy < ((IList<string>)Session["AddAccessModules"]).Count; xy++)
+                                                {
+                                                    string[] MainSubMenus = ((IList<string>)Session["AddAccessModules"])[xy].Split('-');
+                                                    if (MainSubMenus[0].Contains(MainMenus[0]) && MainSubMenus.Length > 3)
+                                                    {
+                                                        <li>
+                                                            @{
+                                                                string[] SubMenus = MainSubMenus[2].Split(',');
+                                                                if (SubMenus[0].ToLower().Trim() == "true")
+                                                                {
+                                                                    <input type="checkbox" style="cursor: pointer;" checked class="@MainMenus[0].Trim().Replace("/","").Replace("(","").Replace(")","").Replace(" ","")sub" id="@MainSubMenus[1].Trim().Replace("/","").Replace("(","").Replace(")","").Replace(" ","")"><label for="subOption">@MainSubMenus[1].Trim()</label>
+                                                                    <ul>
+                                                                        @for (int y = 1; y < SubMenus.Length; y++)
+                                                                        {
+
+                                                                            <li>
+                                                                                <label><input type="checkbox" style="cursor: pointer;" checked id="@MainSubMenus[1].Trim().Replace("/","").Replace("(","").Replace(")","").Replace(" ","")btn" class="@MainSubMenus[1].Trim().Replace("/","").Replace("(","").Replace(")","").Replace(" ","")btn" value="@SubMenus[y].Trim()">@SubMenus[y].Trim()</label>
+                                                                            </li>
+
+                                                                        }
+                                                                    </ul>
+                                                                }
+                                                            }
+                                                        </li>
+                                                                    }
+
+                                                                }
+                                            </ul>
+                                                                }
+                                        <hr />
+
+
+                                    </li>
+                                </ul>
+                                                                    }
+
+
+                                                                }
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <hr />
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <a class="btn btn-primary" data-toggle="modal" data-target=".UpdateModal">Save</a>
+                </div>
+            </div>
+
+
+            <div class="modal fade UpdateModal" id="basic" tabindex="-1" role="basic" aria-hidden="true" data-backdrop="static" data-keyboard="false" style="display: none;">
+                <div class="modal-dialog modal-sm">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                            <div class="InfoIcon"><h4 class="modal-title">Save Confirmation</h4></div>
+                        </div>
+                        <div class="modal-body">
+                            Are you sure you want to save this record?
+                        </div>
+
+                        <div class="modal-footer">
+                            <button id="btnSaveProceed" name="btnSaveProceed" type="button" class="btn btn-primary" onclick="SavedRecord()">Save</button>
+                            <button data-dismiss="modal" type="button" class="btn btn-primary">Cancel</button>
+
+                        </div>
+
+
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal fade SystemMsgErrorModal" id="basic" tabindex="-1" role="basic" aria-hidden="true" data-backdrop="static" data-keyboard="false" style="display: none;">
+                <div class="modal-dialog modal-sm">
+                    <div class="modal-content">
+                        <div class="modal-header modal-header-warning">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                            <div class="ErrorIcon"><h4 class="modal-title">System Message</h4></div>
+                        </div>
+                        <div class="modal-body">
+                            <div class="modalmessage"></div>
+                        </div>
+                        <div class="modal-footer">
+                            <button data-dismiss="modal" type="button" class="btn btn-warning">Ok</button>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal fade SystemMsgSuccessModal" id="basic" tabindex="-1" role="basic" aria-hidden="true" data-backdrop="static" data-keyboard="false" style="display: none;">
+                <div class="modal-dialog modal-sm">
+                    <div class="modal-content">
+                        <div class="modal-header modal-header-success ">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                            <div class="CheckIcon"><h4 class="modal-title">System Message</h4></div>
+                        </div>
+                        <div class="modal-body">
+                            <div class="modalmessage"></div>
+                        </div>
+                        <div class="modal-footer">
+                            <button data-dismiss="modal" type="button" class="btn btn-success" onclick="location.href='@Url.Action("List", "UserAccess")'">Ok</button>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+                                                }
+<hr />
+<div>
+    @Html.ActionLink("Back to List", "List")
+</div>
+
+
+
+<script type="text/javascript">
+
+
+    $(document).ready(function() { 
+        var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+
+        for (var i = 0; i < checkboxes.length; i++) {
+       
+            if (checkboxes[i].id!='')
+            {          
+                var submenu = checkboxes[i].id.indexOf('sub',0);
+                var btnmenu = checkboxes[i].id.indexOf('btn',0);
+           
+                if(submenu + btnmenu==-2)
+                {
+                    document.getElementById(checkboxes[i].id).onclick = function () {
+                        var checkedSub = document.querySelectorAll('.' + this.id + 'sub');                   
+                        for (var y = 0; y < checkedSub.length; y++) {                        
+                            checkedSub[y].checked = this.checked;
+                            document.getElementById(checkedSub[y].id).onclick = function () {
+                                var checkedbtn = document.querySelectorAll('#' + this.id + 'btn');                                  
+                                for (var x = 0; x < checkedbtn.length; x++) {
+                                    checkedbtn[x].checked = this.checked;
+
+                                }
+                                
+                            }                       
+                            var checkedbtn = document.querySelectorAll('#' + checkedSub[y].id + 'btn');                        
+                            for (var x = 0; x < checkedbtn.length; x++) {
+                                checkedbtn[x].checked = this.checked;
+                            
+                            }
+                       
+                      
+                        }
+                    }
+                }
+            }
+        } 
+    
+    
+        for (var i = 0; i < checkboxes.length; i++) {
+
+            if (checkboxes[i].id != '') {
+                var submenu = checkboxes[i].id.indexOf('sub', 0);
+                var btnmenu = checkboxes[i].id.indexOf('btn', 0);
+            
+                if (submenu + btnmenu == -2) {
+              
+              
+                    var checkedSub = document.querySelectorAll('.' + checkboxes[i].id + 'sub');
+                    for (var y = 0; y < checkedSub.length; y++) {
+                       
+                        //checkedSub[y].checked = this.checked;
+                        document.getElementById(checkedSub[y].id).onclick = function () {
+                            var checkedbtn = document.querySelectorAll('#' + this.id + 'btn');                            
+                            for (var x = 0; x < checkedbtn.length; x++) {
+                                checkedbtn[x].checked = this.checked;
+                            }
+                        }                        
+                        //var checkedbtn = document.querySelectorAll('#' + checkedSub[y].id + 'btn');
+                       
+                        //for (var x = 0; x < checkedbtn.length; x++) {
+                        //    checkedbtn[x].checked = this.checked;
+
+                        //}
+                    }                
+                }
+            }
+        }
+    
+    });
+    
+ 
+    function SavedRecord() {
+
+        var varModuleButton = "";
+        var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+        for (var i = 0; i < checkboxes.length; i++) {
+
+            if (checkboxes[i].id != '') {
+                var submenu = checkboxes[i].id.indexOf('sub', 0);
+                var btnmenu = checkboxes[i].id.indexOf('btn', 0);
+
+                if (submenu + btnmenu == -2) {
+                    var checkedSub = document.querySelectorAll('.' + checkboxes[i].id + 'sub');
+                    if (checkedSub.length>0)
+                    {
+                        if (checkboxes[i].checked) {
+                            varModuleButton = varModuleButton + "+" + checkboxes[i].id + "=True";
+                        }
+                        else {
+                            varModuleButton = varModuleButton + "+" + checkboxes[i].id + "=False";
+                        }
+                    
+                    
+                        for (var y = 0; y < checkedSub.length; y++) {
+                            if (checkedSub[y].checked) {
+                                varModuleButton = varModuleButton + "+" + checkedSub[y].id + "=True";
+                            }
+                            else {
+                                varModuleButton = varModuleButton + "+" + checkedSub[y].id + "=False";
+                            }
+                        
+                            var checkedbtn = document.querySelectorAll('#' + checkedSub[y].id + 'btn');
+
+                            for (var x = 0; x < checkedbtn.length; x++) {
+                                if (checkedbtn[x].checked) {
+                                    varModuleButton = varModuleButton + "," + checkedbtn[x].value;
+                                }
+                                else {
+                                    varModuleButton = varModuleButton + ",";
+                                }
+                          
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        //alert(varModuleButton);
+        //varModuleButton = "+ItemProfile=True+Type=True,Add,Edit,View,Delete,Approval,Attachment,Print+Brand=True,Add,Edit,View,Delete,Approval,Attachment,Print+Model=True,Add,Edit,View,Delete,Approval,Attachment,Print+Condition=True,Add,Edit,View,Delete,Approval,Attachment,Print+UOM=True,Add,Edit,View,Delete,Approval,Attachment,Print+Category=True,Add,Edit,View,Delete,Approval,Attachment,Print+Classification=True,Add,Edit,View,Delete,Approval,Attachment,Print+ItemCatalog=True,Add,Edit,View,Delete,Approval,Attachment,Print+Type=True+Brand=True+Model=True+Condition=True+UOM=True+Category=True+Classification=True+ItemCatalog=True+InventoryManagement=True+InventoryandSerialization=True,Add,Edit,View,Delete,Approval,Attachment,Print+ReceivingfromSupplier=True,Add,Edit,View,Delete,Approval,Attachment,Print+OutgoingInventory=True,Add,Edit,View,Delete,Approval,Attachment,Print+IncomingInventory=True,Add,Edit,View,Delete,Approval,Attachment,Print+CycleCountPhysicalInventory=True,Add,Edit,View,Delete,Approval,Attachment,Print+InventoryandSerialization=True+ReceivingfromSupplier=True+OutgoingInventory=True+IncomingInventory=True+CycleCountPhysicalInventory=True+TrackingManagement=True+RequisitionforInssuance=True,Add,Edit,View,Delete,Approval,Attachment,Print+Issuance=True,Add,Edit,View,Delete,Approval,Attachment,Print+Transfer=True,Add,Edit,View,Delete,Approval,Attachment,Print+Return=True,Add,Edit,View,Delete,Approval,Attachment,Print+RequisitionforInssuance=True+Issuance=True+Transfer=True+Return=True+TransportManagement=True+RequisitionforDispatching=True,Add,Edit,View,Delete,Approval,Attachment,Print+RealTimeItemMonitoring=True,Add,Edit,View,Delete,Approval,Attachment,Print+RequisitionforDispatching=True+RealTimeItemMonitoring=True+Reports=True+ListofEmployees=True,Add,Edit,View,Delete,Approval,Attachment,Print+ListofSuppliers=True,Add,Edit,View,Delete,Approval,Attachment,Print+ListofItemsCatalog=True,Add,Edit,View,Delete,Approval,Attachment,Print+ListofItemswassignedEmployeeLocation=True,Add,Edit,View,Delete,Approval,Attachment,Print+ListofItemInventory=True,Add,Edit,View,Delete,Approval,Attachment,Print+ListofItemHistory=True,Add,Edit,View,Delete,Approval,Attachment,Print+ListofReceivedtoWarehouse=True,Add,Edit,View,Delete,Approval,Attachment,Print+ListofOutgoing=True,Add,Edit,View,Delete,Approval,Attachment,Print+ListofIncoming=True,Add,Edit,View,Delete,Approval,Attachment,Print+ListofCycleCount=True,Add,Edit,View,Delete,Approval,Attachment,Print+ListofRequesitions=True,Add,Edit,View,Delete,Approval,Attachment,Print+ListofIssuances=True,Add,Edit,View,Delete,Approval,Attachment,Print+ListofTransfers=True,Add,Edit,View,Delete,Approval,Attachment,Print+ListofReturns=True,Add,Edit,View,Delete,Approval,Attachment,Print+ListofTransportDispatch=True,Add,Edit,View,Delete,Approval,Attachment,Print+ListofTransportINOUTwRemarks=True,Add,Edit,View,Delete,Approval,Attachment,Print+ListofItemDepreciation=True,Add,Edit,View,Delete,Approval,Attachment,Print+ListofEmployees=True+ListofSuppliers=True+ListofItemsCatalog=True+ListofItemswassignedEmployeeLocation=True+ListofItemInventory=True+ListofItemHistory=True+ListofReceivedtoWarehouse=True+ListofOutgoing=True+ListofIncoming=True+ListofCycleCount=True+ListofRequesitions=True+ListofIssuances=True+ListofTransfers=True+ListofReturns=True+ListofTransportDispatch=True+ListofTransportINOUTwRemarks=True+ListofItemDepreciation=True+Settings=True+CompaniesBranchies=True,Add,Edit,View,Delete,Approval,Attachment,Print+Department=True,Add,Edit,View,Delete,Approval,Attachment,Print+Positions=True,Add,Edit,View,Delete,Approval,Attachment,Print+EmployeesProfile=True,Add,Edit,View,Delete,Approval,Attachment,Print+UserAccess=True,Add,Edit,View,Delete,Approval,Attachment,Print+Supplier=True,Add,Edit,View,Delete,Approval,Attachment,Print+ReasonofOutgoing=True,Add,Edit,View,Delete,Approval,Attachment,Print+CostCenter=True,Add,Edit,View,Delete,Approval,Attachment,Print+Location=True,Add,Edit,View,Delete,Approval,Attachment,Print+Warehouse=True,Add,Edit,View,Delete,Approval,Attachment,Print+Section=True,Add,Edit,View,Delete,Approval,Attachment,Print+Rack=True,Add,Edit,View,Delete,Approval,Attachment,Print+Shelf=True,Add,Edit,View,Delete,Approval,Attachment,Print+CompaniesBranchies=True+Department=True+Positions=True+EmployeesProfile=True+UserAccess=True+Supplier=True+ReasonofOutgoing=True+CostCenter=True+Location=True+Warehouse=True+Section=True+Rack=True+Shelf=True+_0_35102299150567906=False+_0_7187463359715203=False";
+
+        $.ajax({
+            url: "/UserAccess/Save/",
+            dataType: "json",
+            cache: false,
+            type: 'POST',
+            data:{ fldAccessName:document.getElementById('fldAccessName').value , _strModuleButton: varModuleButton, _isEdit:false },
+            success: function (result) {
+                $('.UpdateModal').modal('hide');
+                $('.modalmessage').text(result.msg);
+                if (result.Success) {
+                    $('.SystemMsgSuccessModal').modal('show');
+
+                } else {
+                    $('.SystemMsgErrorModal').modal('show');
+                    if (result.hasOwnProperty("Access Name") > -1) {
+                        document.getElementById('fldAccessName').style.borderColor = "darkred";
+                    }
+
+                }
+
+
+            },
+
+        });
+    }
+
+    function LostFocus(id) {
+        document.getElementById(id).style.borderColor = "";
+    }
+
+
+</script>

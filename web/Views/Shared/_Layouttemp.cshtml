@@ -1,0 +1,100 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>JavaScript Shield UI Demos</title>
+    <link id="themecss" rel="stylesheet" type="text/css" href="//www.shieldui.com/shared/components/latest/css/light/all.min.css" />
+    <script type="text/javascript" src="//www.shieldui.com/shared/components/latest/js/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="//www.shieldui.com/shared/components/latest/js/shieldui-all.min.js"></script>
+</head>
+<body class="theme-light">
+    <link href="/Content/css/ListBox/FlagsAll.css" rel="stylesheet" type="text/css" />
+    <div class="outer">
+        <ul id="mymenu">
+            <li data-href="#home">Home</li>
+            <li data-href="#products">
+                <p>Products</p>
+                <ul>
+                    <li data-href="#clothes">
+                        <p>Clothes</p>
+                        <ul>
+                            <li data-href="#shirts">Shirts</li>
+                            <li data-href="#sweaters">Sweaters</li>
+                            <li data-href="#pants">Pants</li>
+                        </ul>
+                    </li>
+                    <li data-href="#shoes">
+                        <p>Shoes</p>
+                        <ul>
+                            <li data-href="#winter-shoes">Winter shoes</li>
+                            <li data-href="#summer-shoes">Summer shoes</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <div>Contacts</div>
+                <ul>
+                    <li data-class="megamenu">
+                        <div class="megamenu-inner">
+                            <div style="display: inline-block; width: 190px;">
+                                <h3>Europe</h3>
+                                <p>ClothesShoes Company Gmbh.</p>
+                                <p>Unter-Wald-Strasse 2</p>
+                                <p>60486 Frankfurt</p>
+                                <p><span class="flag flag-de"></span> Germany</p>
+                                <br />
+                                <p><a class="mmlink" href="#">Visit Website</a></p>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <p class="footerText">Use <b>Arrow</b> keys to navigate through menu items, <b>Space</b> or <b>Enter</b> keys to select items and execute menu commands.</p>
+    <script type="text/javascript">
+    jQuery(function ($) {
+        var menu = $("#mymenu").shieldMenu({
+            cls: "mymenu",
+            orientation: "vertical"
+        }).swidget();
+        menu.focus();
+        menu.selected(true, 0);
+    });
+    </script>
+    <style>
+    .outer {
+        margin: auto;
+        max-width: 600px;
+        min-height: 100px;
+    }
+    .mymenu {
+        width: 200px;
+    }
+    .megamenu:hover,
+    .megamenu.sui-menu-item-selected {
+        background-color: transparent;
+        color: inherit;
+    }
+    .megamenu .flag {
+        display: inline-block;
+    }
+    .megamenu .mmlink {
+        color: blue;
+        text-decoration: underline;
+    }
+    .megamenu-inner {
+        width: 200px;
+    }
+    @media screen and (max-width: 250px) {
+        .megamenu-inner {
+            width: 150px;
+        }
+    }
+    .footerText {
+        margin-top: 40px;
+    }
+    </style>
+</body>
+</html>

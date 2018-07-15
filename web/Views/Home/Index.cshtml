@@ -1,0 +1,265 @@
+﻿
+
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div id="BGI" class="jumbotron">
+
+    <div class="row">
+        <div class="col-md-12" style="margin-top:0px;">
+            <table style="height:50px;">
+                <tr>
+                    <td>
+                        <label id="Title" style="min-width:300px;font-weight:bold;color:#cbb849; font-size:65px; margin-bottom:-15px;"><img class="DashboardIcons" src="~/Images/Title.png" width="300" /></label>
+                    </td>
+
+                </tr>
+                <tr>
+                    <td>
+                        <label id="TitleAMSSmall" style="min-width:200px;color:#f5d623; letter-spacing:7px; font-size:small;margin-top:15px">
+                            <div class="col-lg-12"><label>Commuter Experience</label></div> 
+                            <div class="col-lg-12" style="margin-left:70px"><label>Management System</label></div> 
+                        </label>
+                        <label id="TitleAMSLarge" style="min-width:300px;color:#f5d623; letter-spacing:7px; font-size:large; margin-top:10px">Commuter Experience Management System</label>
+                    </td>
+                </tr>
+
+
+            </table>
+        </div>
+    </div>
+
+</div>
+
+
+<div class="row">
+    <div class="col-md-12" style="text-align:center;  padding-bottom:10px;">
+
+        <div class="col-md-6">
+            <table style="margin:auto;">
+                <tr style="background-color:white !important">
+                    <td class="DashboardLabelTitle">Registered Beep Cards</td>
+                </tr>
+                <tr style="background-color: white !important; border-top: 1px solid #050329; border-bottom: 1px solid #050329;">
+                    <td>
+                        <img class="DashboardIcons" src="~/Images/BeepCards.png"  width="90"/>
+                        <span id="AccountRegistered" class="DashboardLabelValue">@ViewBag.AccountRegistered</span>
+                    </td>
+
+                </tr>
+                <tr style="background-color:white !important">
+                    <td>
+                        <p>Total Beep Cards registered in the system.</p>
+                    </td>
+                </tr>
+
+
+            </table>
+
+
+        </div>
+
+        <div class="col-md-6">
+            <table style="margin:auto;">
+                <tr style="background-color:white !important">
+                    <td class="DashboardLabelTitle">Active Commuters</td>
+                </tr>
+                <tr style="background-color: white !important; border-top: 1px solid #050329; border-bottom: 1px solid #050329;">
+                    <td>
+                        <img class="DashboardIcons" src="~/Images/Commuter.png"  width="90" />
+                        <span id="TodayActiveCommuters" class="DashboardLabelValue">@ViewBag.TodayActiveCommuters</span>
+                    </td>
+
+                </tr>
+                <tr style="background-color:white !important">
+                    <td>
+                        <p>Todays total number of active commuters.</p>
+                    </td>
+                </tr>
+
+
+            </table>
+        </div>
+
+    </div>
+
+
+    <div class="col-md-12" style="text-align:center; padding-top:10px; padding-bottom:10px; border-top: 1px solid #050329; ">
+        <div class="col-lg-2">
+        </div>
+            <div class="col-lg-2">
+                <table style="margin:auto;">
+                    <tr style="background-color:white !important">
+                        <td class="DashboardLabelTitle">Active Trains</td>
+                    </tr>
+                    <tr style="background-color: white !important; border-top: 1px solid #050329; border-bottom: 1px solid #050329;">
+                        <td>
+                            <img class="DashboardIcons" src="~/Images/Trains.png"  width="60"/>
+                            <span class="DashboardLabelValue">21 </span>
+                        </td>
+
+                    </tr>
+                    <tr style="background-color:white !important">
+                        <td>
+                            <p>Todays total number of active Trains</p>
+                        </td>
+                    </tr>
+
+
+                </table>
+
+
+            </div>
+            <div class="col-lg-2 ">
+                <table style="margin:auto;">
+                    <tr style="background-color:white !important">
+                        <td class="DashboardLabelTitle">Passengers</td>
+                    </tr>
+                    <tr style="background-color: white !important; border-top: 1px solid #050329; border-bottom: 1px solid #050329;">
+                        <td>
+                            <img class="DashboardIcons" src="~/Images/Passenger.jpg"  width="60"/>
+                            <span id="PassengerCountsToday" class="DashboardLabelValue">@ViewBag.PassengerCountsToday</span>
+                        </td>
+                    </tr>
+                    <tr style="background-color:white !important">
+                        <td>
+                            <p>Todays total number of passengers</p>
+                        </td>
+                    </tr>
+
+                </table>
+
+
+            </div>
+            <div class="col-lg-2">
+                <table style="margin:auto;">
+                    <tr style="background-color:white !important">
+                        <td class="DashboardLabelTitle">Scanned Ads</td>
+                    </tr>
+                    <tr style="background-color: white !important; border-top: 1px solid #050329; border-bottom: 1px solid #050329;">
+                        <td>
+                            <img class="DashboardIcons" src="~/Images/Ads.png"  width="60"/>
+                            <span id="ScannedAdsCount" class="DashboardLabelValue">@ViewBag.ScannedAdsCount</span>
+                        </td>
+
+                    </tr>
+                    <tr style="background-color:white !important">
+                        <td>
+                            <p>Total scanned Ads as of today</p>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        <div class="col-lg-2">
+            <table style="margin:auto;">
+                <tr style="background-color:white !important">
+                    <td class="DashboardLabelTitle">Rewards</td>
+                </tr>
+                <tr style="background-color: white !important; border-top: 1px solid #050329; border-bottom: 1px solid #050329;">
+                    <td>
+                        <img class="DashboardIcons" src="~/Images/rewards.png" width="60" />
+                        <span id="RewardsTotal" class="DashboardLabelValue">@ViewBag.RewardsTotal</span>
+                    </td>
+
+                </tr>
+                <tr style="background-color:white !important">
+                    <td>
+                        <p>Total Earned Points as of today</p>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="col-lg-2">
+        </div>
+        </div>
+    
+
+}
+    <div class="modal fade SystemMsgErrorModal" id="basic" tabindex="-1" role="basic" aria-hidden="true" data-backdrop="static" data-keyboard="false" style="display: none;">
+        <div class="modal-dialog modal-lg" style="max-width:400px">
+            <div class="modal-content">
+                <div class="modal-header modal-header-warning">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                    <div class="ErrorIcon"><h4 class="modal-title">System Message</h4></div>
+                </div>
+                <div class="modal-body">
+                    <div class="modalmessage">@Session["SystemMessage"]</div>
+                </div>
+                <div class="modal-footer">
+                    <button data-dismiss="modal" type="button" class="btn btn-warning">Ok</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@if (Session["SystemMessage"] != "" && Session["SystemMessage"] != null)
+{
+    <script>
+        $(document).ready(function () {
+            $('.SystemMsgErrorModal').modal('show');
+
+        });
+    </script>
+}
+
+
+
+
+
+
+<br />
+
+
+<script type="text/javascript">
+    getscreenresolution();
+
+    window.onresize = function () {
+        getscreenresolution();
+    }
+
+
+    function getscreenresolution(showmo) {
+
+        if ($(window).width() < 1160) {
+           // document.getElementById("Title").style.display = 'none';
+            document.getElementById("TitleAMSSmall").style.display = '';
+            document.getElementById("TitleAMSLarge").style.display = 'none';
+        }
+        else {
+            document.getElementById("Title").style.display = '';
+            document.getElementById("TitleAMSLarge").style.display = '';
+            document.getElementById("TitleAMSSmall").style.display = 'none';
+        }
+
+    }
+    GetDashboardvalue();
+    function GetDashboardvalue() {
+        setTimeout(function () {
+        $.ajax({
+            url: "/home/GetDashBoardValue",
+            dataType: "json",
+            cache: false,
+            type: 'GET',
+            success: function (result) {
+                
+                document.getElementById("AccountRegistered").innerHTML = result.AccountRegistered;
+                document.getElementById("TodayActiveCommuters").innerHTML = result.TodayActiveCommuters;
+                document.getElementById("RewardsTotal").innerHTML = result.RewardsTotal;
+                document.getElementById("ScannedAdsCount").innerHTML = result.ScannedAdsCount;
+                document.getElementById("PassengerCountsToday").innerHTML = result.PassengerCountsToday;
+                GetDashboardvalue();
+            }
+            });
+        }, 1000);
+    }
+
+    
+
+    
+</script>

@@ -1,0 +1,159 @@
+﻿.modalButton
+{
+    background-color:#ffffff;
+    color:rgb(32, 32, 32);
+    text-transform:capitalize;
+    border-style:solid;
+    border-width:1px;
+    margin:2px 2px 2px 0px;
+    font-family:Arial;
+    padding:5px 20px 5px 20px;
+    border-color:#050329;
+    font-weight:normal !important;
+}
+.modalButton:hover
+{
+    background-color:#050329;
+}
+.view-button
+{
+    background: url(/images/view.png) no-repeat;
+    cursor:pointer;
+    border: none;
+    background-size: 30px 30px;
+    width:30px;
+    height:30px;
+}
+.edit-button
+{
+    background: url(/images/edit.png) no-repeat;
+    cursor:pointer;
+    border: none;
+    background-size: 30px 30px;
+    width:30px;
+    height:30px;
+}
+.delete-button
+{
+    background: url(/images/delete.png) no-repeat;
+    cursor:pointer;
+    border: none;
+    background-size: 30px 30px;
+    width:30px;
+    height:30px;
+}
+.image-upload > input {
+  visibility:hidden;
+  width:0;
+  height:0
+}
+.create-button
+{
+    background: url(/images/create-new.png) no-repeat;
+    cursor:pointer;
+    border: none;
+    background-size: 117px 34px;
+    width:117px;
+    height:34px;
+}
+.sub-button
+{
+    background: url(/images/subadd.png) no-repeat;
+    cursor:pointer;
+    border: none;
+    background-size: 20px 20px;
+    width:20px;
+    height:20px;
+}
+.addattached
+{
+    background: url(/images/addattached.png) no-repeat;
+    cursor:pointer;
+    border: none;
+    background-size: 20px 20px;
+    width:20px;
+    height:20px;
+}
+
+.refresh-button
+{
+    background: url(/images/refresh.png) no-repeat;
+    cursor:pointer;
+    border: none;
+    background-size: 34px 34px;
+    width:34px;
+    height:34px;
+}
+.Print-button
+{
+    background: url(/images/Printer.png) no-repeat;
+    cursor:pointer;
+    border: none;
+    background-size: 34px 34px;
+    width:34px;
+    height:34px;
+}
+.preview-button {
+    background: url(/images/reportview.png) no-repeat; 
+    cursor: pointer;
+    border: none;
+    background-size: 117px 34px;
+    width: 117px;
+    height: 34px;
+}
+
+.button.disabled {
+  opacity: 0.65; 
+  cursor: not-allowed;
+}
+
+.InfoIcon {
+       
+    background-image: url('../Images/Info.png');
+    background-repeat:no-repeat;
+    background-size: 25px;
+    width:auto;
+    padding-left:35px;
+}
+.ItemIcon {
+       
+    background-image: url('../Images/Assetlogo.png');
+    background-repeat:no-repeat;
+    background-size: 25px;
+    width:auto;
+    padding-left:35px;
+}
+.ErrorIcon {
+       
+    background-image: url('../Images/error.png');
+    background-repeat:no-repeat;
+    background-size: 25px;
+    width:auto;
+    padding-left:35px;
+}
+
+.LoadingIcon {
+       
+    background-image: url('../Images/loading.gif');
+    background-repeat:no-repeat;
+    background-size: 45px;
+    width:auto;
+    padding-left:0px;
+}
+
+.CheckIcon {
+       
+    background-image: url('../Images/check.png');
+    background-repeat:no-repeat;
+    background-size: 25px;
+    width:auto;
+    padding-left:35px;
+}
+.SupplierIcon {
+       
+    background-image: url('../Images/suppliericon.png');
+    background-repeat:no-repeat;
+    background-size: 25px;
+    width:auto;
+    padding-left:35px;
+}

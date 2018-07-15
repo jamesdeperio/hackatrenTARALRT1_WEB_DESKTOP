@@ -1,0 +1,12 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="NXYSOFT_RMS.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="NXYSOFT_RMS_TMSWebServices_Services" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://nigen-cloudtms.com:6009/TMSWEBService.asmx</Value>
+    </Setting>
+    <Setting Name="NXYSOFT_RMS_TMSWebDeviceSDK_CloudDeviceSDK" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://nigen-cloudtms.com:6001/CloudDeviceSDK.asmx</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

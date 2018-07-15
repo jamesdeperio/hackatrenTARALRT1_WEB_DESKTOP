@@ -1,0 +1,183 @@
+﻿@model NXYSOFT_RMS.Models.RfidSettingModel
+
+
+    <h2>RFID Configuration </h2>
+
+<div class="panel panel-footer"></div>
+@using (Html.BeginForm("Update", "RfidSetting"))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.CurrentID)
+
+
+
+    <div class="form-horizontal">
+        <div class="form-group">
+            @Html.LabelFor(model => model.fldPCSerialNo, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.fldPCSerialNo, 1, 150, new { @id = "fldPCSerialNo", @onkeyup = "CheckForPicKeyUp()", @class = "textbox", @style = "width:50%;", onblur = "LostFocus('fldNameType')" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.fldRFIDIPaddress, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.fldRFIDIPaddress, new { @id = "fldRFIDIPaddress", @class = "textbox", @style = "width:50%;" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.fldRFIDPortNo, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.fldRFIDPortNo, new { @id = "fldRFIDPortNo", @class = "textbox", @style = "width:50%;" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.fldIsActive, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div style="font-weight:bold;color:#373f81;margin-top: 10px;">@Html.EditorFor(model => model.fldIsActive)</div>
+            </div>
+        </div>
+       
+        <hr />
+
+        
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <a class="btn btn-primary" data-toggle="modal" data-target=".UpdateModal">Update</a>
+                </div>
+            </div>
+      
+        
+        <div class="modal fade UpdateModal" id="basic" tabindex="-1" role="basic" aria-hidden="true" data-backdrop="static" data-keyboard="false" style="display: none;">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>                        
+                        <div class="InfoIcon"><h4 class="modal-title">Save Confirmation</h4></div>
+                    </div>
+                    <div class="modal-body">
+                        Are you sure you want to update this record?
+                    </div>
+
+                    <div class="modal-footer">
+                        <button id="btnSaveProceed" name="btnSaveProceed" type="button" class="btn btn-primary" onclick="SavedRecord()">Update</button>                        
+                        <button data-dismiss="modal" type="button" class="btn btn-primary">Cancel</button>
+
+                    </div>
+
+
+
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade SystemMsgErrorModal" id="basic" tabindex="-1" role="basic" aria-hidden="true" data-backdrop="static" data-keyboard="false" style="display: none;">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <div class="modal-header modal-header-warning">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                        <div class="ErrorIcon"><h4 class="modal-title">System Message</h4></div>
+                    </div>
+                    <div class="modal-body">
+                        <div class="modalmessage"></div>
+                    </div>
+                    <div class="modal-footer">
+                        <button data-dismiss="modal" type="button" class="btn btn-warning">Ok</button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade SystemMsgSuccessModal" id="basic" tabindex="-1" role="basic" aria-hidden="true" data-backdrop="static" data-keyboard="false" style="display: none;">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <div class="modal-header modal-header-success ">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                        <div class="CheckIcon"><h4 class="modal-title">System Message</h4></div>
+                    </div>
+                    <div class="modal-body">
+                        <div class="modalmessage"></div>
+                    </div>
+                    <div class="modal-footer">
+                        <button data-dismiss="modal" type="button" class="btn btn-success" onclick="location.href='@Url.Action("List", "RfidSetting")'">Ok</button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+<hr />
+<div>
+    @Html.ActionLink("Back to List", "List")
+</div>
+
+
+
+<script type="text/javascript">
+    getscreenresolution();
+
+    window.onresize = function () {
+        getscreenresolution();
+
+    }
+
+
+
+    function getscreenresolution() {
+
+        if ($(window).width() < 1160) {
+
+            document.getElementById('fldPCSerialNo').style.width = "100%";
+            document.getElementById('fldRFIDIPaddress').style.width = "100%";
+            document.getElementById('fldRFIDPortNo').style.width = "100%";
+           
+
+        }
+        else {
+            document.getElementById('fldPCSerialNo').style.width = "50%";
+            document.getElementById('fldRFIDIPaddress').style.width = "50%";
+            document.getElementById('fldRFIDPortNo').style.width = "50%";
+          
+        }
+
+    }
+
+    function SavedRecord() {
+        $.ajax({
+            url: "/RfidSetting/Update/",
+            dataType: "json",
+            cache: false,
+            type: 'GET',
+            data: { CurrentID: document.getElementById('CurrentID').value, fldPCSerialNo: document.getElementById('fldPCSerialNo').value, fldRFIDIPaddress: document.getElementById('fldRFIDIPaddress').value, fldRFIDPortNo: document.getElementById('fldRFIDPortNo').value , fldLastCommand: document.getElementById('fldIsActive').checked},
+            success: function (result) {
+                $('.UpdateModal').modal('hide');
+                $('.modalmessage').text(result.msg);
+                if (result.Success) {
+                    $('.SystemMsgSuccessModal').modal('show');
+
+                } else {
+                    $('.SystemMsgErrorModal').modal('show');
+                    if (result.hasOwnProperty("Type") > -1) {
+                        document.getElementById('fldNameType').style.borderColor = "darkred";
+                    }
+
+                }
+
+
+            },
+
+        });
+    }
+
+
+   
+
+    function LostFocus(id)
+    {      
+        document.getElementById(id).style.borderColor = "";
+    }
+
+
+</script>

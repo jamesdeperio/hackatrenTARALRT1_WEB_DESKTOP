@@ -1,0 +1,417 @@
+﻿
+@model NXYSOFT_RMS.Models.RfidSettingModel
+
+
+@{
+    ViewBag.Title = "Type List";
+}
+<br />
+<h2>RFID Monitoring </h2>
+
+@using (Html.BeginForm("List", "Type"))
+{
+
+    <p>
+        <div class="row">
+            <div class="col-lg-12">
+
+                <div class="col-lg-4">
+                   @* <input name="fldFromDate" value="@Html.ValueFor(model => model.fldFromDate)" type="date" onchange="this.form.submit()" class="DatePicker" data-toggle="tooltip" title="From Date" />*@
+                </div>
+                <div class="col-lg-4">
+                   @* <input name="fldToDate" value="@Html.ValueFor(model => model.fldToDate)" type="date" onchange="this.form.submit()" class="DatePicker" data-toggle="tooltip" title="To Date" />*@
+                </div>
+                <div class="col-lg-4">
+                    <input name="fldSearchText" value="@Html.ValueFor(model => model.fldSearchText)" type="search" onchange="this.form.submit()" class="textbox-search" placeholder="Search..." autocomplete="off" data-toggle="tooltip" title="Input your text and press enter to seach" />
+                </div>
+            </div>
+
+        </div>
+
+    </p>
+
+
+
+
+
+
+
+    if (ViewData["RecordData"] != null && (ViewData["RecordData"] as System.Data.DataTable).Rows.Count != 0)
+    {<div>
+        <table id="rectable" style="display:none;" class="table table-fixed table-hover table-striped ">
+            <thead class="thead-Backgroudcolor">
+                <tr>
+                    <th id="1" onclick="sortTable(0);" class="col-lg-11 " style="min-width:0px; text-align:left;">Details<div class="arrow-sort-img"></div></th>
+                    <th id="2" onclick="sortTable(1);" class="col-lg-2 " style="min-width:148px; text-align:left;">@Html.DisplayNameFor(model => model.fldPCSerialNo)<div class="arrow-sort-img"></div></th>
+                    <th id="3" onclick="sortTable(2);" class="col-lg-2" style="min-width:90px; text-align:left; ">@Html.DisplayNameFor(model => model.fldRFIDIPaddress)<div class="arrow-sort-img"></div></th>
+                    <th id="4" onclick="sortTable(3);" class="col-lg-2" style="min-width:90px; text-align:left;">@Html.DisplayNameFor(model => model.fldRFIDPortNo)<div class="arrow-sort-img"></div></th>                    
+                    <th id="5" onclick="sortTable(4);" class="col-lg-2" style="min-width:90px; text-align:left;">Active<div class="arrow-sort-img"></div></th>                    
+                    <th id="6" onclick="sortTable(5);" class="col-lg-2" style="min-width:90px; text-align:left;">@Html.DisplayNameFor(model => model.fldCurrentStatus)<div class="arrow-sort-img"></div></th>                    
+                    <th id="7" class="col-xs-1 TH-HeadListItems" style="text-align:left; min-width:90px;">Action</th>
+
+
+                </tr>
+            </thead>
+            @*</table>*@
+            @*<div class='scrollable-table'>
+                <table class="table table-fixed table-hover table-striped ">*@
+
+            <tbody id="Records">
+                @foreach (System.Data.DataRow dr in (ViewData["RecordData"] as System.Data.DataTable).Rows)
+                {
+
+                    <tr>
+                        <td id="Details" class="SubListItems">
+
+                            <div style="font-size:13px;color:#202020; width:75%">
+                                PC Serial: @dr["fldPCSerialNo"]
+                            </div>
+                            <div style="font-size:12px;color:Gray; width:80%">
+                                IP Address: @dr["fldRFIDIPaddress"]
+                            </div>
+                            <div style="font-size:12px;color:Gray; width:80%">
+                                Port No: @dr["fldRFIDPortNo"]
+                            </div>
+                           
+                            <div style="font-size:12px;color:Gray; width:75%;display: inline;">
+                                <p style="display: inline;">
+                                    Active: @if (dr["fldLastCommand"].ToString() == "true")
+                                    {
+                                        <div style="display: inline;" id="GreenBox">
+                                            <span id="x">✔</span>
+                                        </div>
+                                    }
+                                    else
+                                    {
+                                        <div style="display: inline;" id="orangeBox">
+                                            <span id="x">X</span>
+                                        </div>
+                                    }
+                                </p>
+                            </div>
+                            <div style="font-size:12px;color:Gray; width:80%">
+                                Last Command: @dr["fldCurrentStatus"]
+                            </div>
+
+
+                        </td>
+                        <td id="column1" class="SubListItems col-lg-2">
+                            @dr["fldPCSerialNo"]
+                        </td>
+                        <td id="column2" class="SubListItems col-lg-2">
+                            @dr["fldRFIDIPaddress"]
+                        </td>
+                        <td id="column2" class="SubListItems col-lg-2">
+                            @dr["fldRFIDPortNo"]
+                        </td>
+                                              
+                        <td id="column3" class="SubListItems col-lg-2">
+                            @if (dr["fldLastCommand"].ToString() == "true")
+                            {
+                                <div id="GreenBox">
+                                    <span id="x">✔</span>
+                                </div>
+                            }
+                            else
+                            {
+                                <div id="orangeBox">
+                                    <span id="x">✖</span>
+                                </div>
+                            }
+
+                        </td>
+                        <td id="column2" class="SubListItems col-lg-2">
+                            @dr["fldCurrentStatus"]
+                        </td>  
+                        <td class="actioncolunm" style="min-width:90px;">
+                            <div class="row" style="position:relative; left:10px !important;  ">
+
+                                <div class="col-md-3" style="padding-left: 0px !important; padding-right: 0px !important; width: 31px;float:left">
+                                    <button id="btnEdit" type="button" onclick="EditSelectedID('@dr["fldPCSerialNo"]')" data-toggle="tooltip" title="Edit" class="glyphicon glyphicon-pencil" style="color:#055808"></button>
+                                </div>
+                              
+                              
+                                   
+
+
+                            </div>
+                        </td>
+
+                    </tr>
+                }
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="12">
+                        <div class="col-md-1" style="margin-bottom:8px;">
+                            @Html.DropDownListFor(model => model.fldPageLimit, new SelectList(Model.cbPageLimit, "Id", "Name"), new { @Title = "View", @style = "width:70px;height:30px;", @class = "dropdown-input", onchange = "this.form.submit()" })
+                        </div>
+                        <div class="col-md-3" style="padding-left: 0px; border:solid;text-align:center; border-color:whitesmoke">
+                            @if (Model.fldPageNo > 1)
+                            {
+                                <input name="fldPageCommand" value="<< Previous" type="submit" onclick="document.forms[0].submit()" style="min-width: 93px; padding: 0;border: none;background: none; color:darkblue" />
+                            }
+                            else
+                            {
+                                <input name="fldPageCommand" value="<< Previous" type="submit" onclick="document.forms[0].submit()" style="min-width: 93px; padding: 0;border: none;background: none; color:#808080" disabled />
+                            }
+
+                            ..  @Html.ValueFor(model => model.fldPageNo) / @ViewBag.Pagging  ..
+                            @if (Model.fldPageNo < @ViewBag.Pagging)
+                            {
+                                <input name="fldPageCommand" value="Next >>" type="submit" onclick="document.forms[0].submit()" style="min-width: 93px; padding: 0;border: none;background: none; color:darkblue" />
+                            }
+                            else
+                            {
+                                <input name="fldPageCommand" value="Next >>" type="submit" onclick="document.forms[0].submit()" style="min-width: 93px; padding: 0;border: none;background: none; color:#808080" disabled />
+                            }
+
+                        </div>
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+    <br />
+    <div class="SubListItems col-md-12" style="text-align:right; font-size:17px;">
+        Total Record(s): @ViewBag.RecordCount
+    </div>
+    <br />
+    }
+    else
+    {
+        <hr />
+        <table style="width:100%;">
+            <tbody>
+                <tr>
+                    <td align="center">
+                        <img id="__contentPlaceHolder___leave_Repeater1_Image3" src="~/Images/empty.png" style="width:60px;">
+                    </td>
+                </tr>
+                <tr>
+                    <td style="vertical-align:top;padding-top:9px;color:#969696" align="center">
+                        No Record Found
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+
+    }
+
+
+
+}
+
+
+<div class="modal fade UpdateModal" id="basic" tabindex="-1" role="basic" aria-hidden="true" data-backdrop="static" data-keyboard="false" style="display: none;">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                <div class="InfoIcon"><h4 class="modal-title">Delete Confirmation</h4></div>
+                
+            </div>
+            <div class="modal-body">
+                Are you sure you want to delete the selected record?
+            </div>
+
+
+            <div class="modal-footer">
+                <button id="btnDeleteProceed" name="btnDeleteProceed" type="button" class="btn btn-primary" onclick="DeleteSelectedID()">Yes</button>
+                <button data-dismiss="modal" type="button" class="btn btn-primary">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+<div class="modal fade SystemMsgErrorModal" id="basic" tabindex="-1" role="basic" aria-hidden="true" data-backdrop="static" data-keyboard="false" style="display: none;">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header modal-header-warning">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                <div class="ErrorIcon"><h4 class="modal-title">System Message</h4></div>
+            </div>
+            <div class="modal-body">
+                <div class="modalmessageError"></div>
+            </div>
+            <div class="modal-footer">
+                <button data-dismiss="modal" type="button" class="btn btn-warning">Ok</button>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade SystemMsgSuccessModal" id="basic" tabindex="-1" role="basic" aria-hidden="true" data-backdrop="static" data-keyboard="false" style="display: none;">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header modal-header-success ">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                <div class="CheckIcon"><h4 class="modal-title">System Message</h4></div>
+            </div>
+            <div class="modal-body">
+                <div class="modalmessage"></div>
+            </div>
+            <div class="modal-footer">
+                <button data-dismiss="modal" type="button" class="btn btn-success" onclick="location.href='@Url.Action("List", "Type")'">Ok</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+
+
+    function EditSelectedID(id) {
+        $.ajax({
+            Type: "POST",
+            ContentType: "application/json;charset=utf-8",
+            url: '@Url.Action("GetEditRecord", "RfidSetting")',
+            data: { CurrentID: id },
+            success: function (data) {
+                location.href = '@Url.Action("Edit", "RfidSetting")';
+            },
+            error: function () {
+                alert("Error");
+            }
+
+        });
+
+
+    }
+
+    function SelectIDDelete(id) {
+        document.getElementById("btnDeleteProceed").value = id;
+    }
+
+    function DeleteSelectedID() {
+
+        $.ajax({
+            url: "/RfidSetting/Delete/",
+            dataType: "json",
+            cache: false,
+            type: 'GET',
+            data: { CurrentID: document.getElementById("btnDeleteProceed").value },
+            success: function (result) {
+                if (result.Success) {
+                    $('.UpdateModal').modal('hide');
+                    $('.modalmessage').text(result.msg);
+                    $('.SystemMsgSuccessModal').modal('show');
+
+                } else {
+                    $('.UpdateModal').modal('hide');
+                    $('.modalmessageError').text(result.msg);
+                    $('.SystemMsgErrorModal').modal('show');
+                }
+            }
+        });
+    }
+
+
+
+
+</script>
+
+
+<script type="text/javascript">
+    getscreenresolution();
+
+
+    function getscreenresolution() {
+
+        if ($(window).width() < 1160) {
+            $('.actioncolunm').attr('style', 'min-width: 0px');
+
+            show_hide_column(0, 1);
+            show_hide_column(1, 0);
+            show_hide_column(2, 0);
+            show_hide_column(3, 0);
+
+
+        }
+        else {
+            $('.actioncolunm').attr('style', 'min-width: 90px');
+            show_hide_column(0, 0);
+            show_hide_column(1, 1);
+            show_hide_column(2, 1);
+            show_hide_column(3, 1);
+
+
+        }
+        document.getElementById('rectable').style.display = "table";
+
+    }
+
+    function show_hide_column(col_no, do_show) {
+        var rows = document.getElementById('Records').rows;
+        for (var row = 0; row < rows.length; row++) {
+            var cols = rows[row].cells;
+            if (col_no >= 0 && col_no < cols.length) {
+                cols[col_no].style.display = do_show ? '' : 'none';
+            }
+        }
+        document.getElementById(col_no + 1).style.display = do_show ? '' : 'none';
+    }
+
+
+    function sortTable(n) {
+        var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+        table = document.getElementById("Records");
+        switching = true;
+        //Set the sorting direction to ascending:
+        dir = "asc";
+        /*Make a loop that will continue until
+        no switching has been done:*/
+        while (switching) {
+            //start by saying: no switching is done:
+            switching = false;
+            rows = table.getElementsByTagName("TR");
+            /*Loop through all table rows (except the
+            first, which contains table headers):*/
+            for (i = 0; i < (rows.length - 1) ; i++) {
+                //start by saying there should be no switching:
+                shouldSwitch = false;
+                /*Get the two elements you want to compare,
+                one from current row and one from the next:*/
+                x = rows[i].getElementsByTagName("TD")[n];
+                y = rows[i + 1].getElementsByTagName("TD")[n];
+                /*check if the two rows should switch place,
+                based on the direction, asc or desc:*/
+                if (dir == "asc") {
+                    if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+                        //if so, mark as a switch and break the loop:
+                        shouldSwitch = true;
+                        break;
+                    }
+                } else if (dir == "desc") {
+                    if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+                        //if so, mark as a switch and break the loop:
+                        shouldSwitch = true;
+                        break;
+                    }
+                }
+            }
+            if (shouldSwitch) {
+                /*If a switch has been marked, make the switch
+                and mark that a switch has been done:*/
+                rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                switching = true;
+                //Each time a switch is done, increase this count by 1:
+                switchcount++;
+            } else {
+                /*If no switching has been done AND the direction is "asc",
+                set the direction to "desc" and run the while loop again.*/
+                if (switchcount == 0 && dir == "asc") {
+                    dir = "desc";
+                    switching = true;
+                }
+            }
+        }
+        getscreenresolution();
+    }
+
+</script>

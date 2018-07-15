@@ -1,0 +1,409 @@
+﻿
+@model NXYSOFT_RMS.Models.UserAccess
+
+
+@{
+    ViewBag.Title = "User Access";
+}
+<br />
+<h2>User Access </h2>
+
+@using (Html.BeginForm("List", "UserAccess"))
+{
+
+    <p>
+        <div class="row">
+
+            <div class="col-lg-5">
+                <div class="col-lg-12">
+                    @for (int x = 0; x < ((IList<string>)Session["listofModules"]).Count; x++)
+                    {
+                        if (((IList<string>)Session["listofModules"])[x].Contains("Settings - User Access - True"))
+                        {
+                            Session["UserAccess"] = true;
+                            if (((IList<string>)Session["listofModules"])[x].Contains("Add"))
+                            {
+                                Session["UserAccessCreateAccess"] = true;
+                            }
+                            else
+                            {
+                                Session["UserAccessCreateAccess"] = false;
+                            }
+                            if (((IList<string>)Session["listofModules"])[x].Contains("Edit"))
+                            {
+                                Session["UserAccessEditAccess"] = true;
+                            }
+                            else
+                            {
+                                Session["UserAccessEditAccess"] = false;
+                            }
+                            if (((IList<string>)Session["listofModules"])[x].Contains("Delete"))
+                            {
+                                Session["UserAccessDeleteAccess"] = true;
+                            }
+                            else
+                            {
+                                Session["UserAccessDeleteAccess"] = false;
+                            }
+                            if (((IList<string>)Session["listofModules"])[x].Contains("View"))
+                            {
+                                Session["UserAccessViewAccess"] = true;
+                            }
+                            else
+                            {
+                                Session["UserAccessViewAccess"] = false;
+                            }
+                            break;
+                        }
+                        Session["UserAccess"] = false;
+                    }
+
+                    @if (bool.Parse(Session["UserAccessCreateAccess"].ToString()) == true)
+                    {
+                        <button id="btnCreate" type="button" onclick="location.href='@Url.Action("Add", "UserAccess")'" data-toggle="tooltip" title="Create New User Access" class="create-button"></button>
+                    }
+                    else
+                    {
+                        <button id="btnCreate" type="button" data-toggle="tooltip" title="You don't have access to create new record" class="create-button button disabled"></button>
+                    }
+
+                    <button id="btnRefresh" type="button" onclick="location.href='@Url.Action("List", "UserAccess")'" data-toggle="tooltip" title="Refresh list" class="refresh-button"></button>
+                </div>
+            </div>
+            <div class="col-lg-7">
+
+                <div class="col-lg-4">
+                    
+                </div>
+                <div class="col-lg-4">
+                    
+                </div>
+                <div class="col-lg-4">
+                    <input name="fldSearchText" value="@Html.ValueFor(model => model.fldSearchText)" type="search" onchange="this.form.submit()" class="textbox-search" placeholder="Search..." autocomplete="off" data-toggle="tooltip" title="Input your text and press enter to seach" />
+                </div>
+            </div>
+
+        </div>
+
+    </p>
+
+
+
+
+
+
+
+    if (ViewData["RecordData"] != null && (ViewData["RecordData"] as System.Data.DataTable).Rows.Count != 0)
+    {<div>
+        <table id="rectable" style="display:none;" class="table table-fixed table-hover table-striped ">
+            <thead class="thead-Backgroudcolor">
+                <tr>                    
+                    <th id="1" onclick="sortTable(0);" class="col-lg-11 " style="min-width:148px; text-align:left;">@Html.DisplayNameFor(model => model.fldAccessName)<div class="arrow-sort-img"></div></th>                                        
+                    <th id="2" class="col-xs-1 TH-HeadListItems" style="text-align:left; min-width:90px;">Action</th>
+                </tr>
+            </thead>
+       
+            <tbody id="Records">
+                @foreach (System.Data.DataRow dr in (ViewData["RecordData"] as System.Data.DataTable).Rows)
+                {
+
+                    <tr>
+                        
+                        <td id="column1" class="SubListItems col-lg-11">
+                            @dr["fldAccessName"]
+                        </td>
+                       
+                        <td class="actioncolunm" style="min-width:90px;">
+                            <div class="row" style="position:relative; left:10px !important;  ">
+
+
+                                @if (bool.Parse(Session["UserAccessEditAccess"].ToString()) == true)
+                                {
+                                     <div class="col-md-3" style="padding-left: 0px !important; padding-right: 0px !important; width: 31px;float:left">
+                                        <button id="btnEdit" type="button" onclick="EditSelectedID('@dr["fldAccessName"]')" data-toggle="tooltip" title="Edit" class="glyphicon glyphicon-pencil" style="color:#055808"></button>
+                                    </div>
+                                }
+                                else
+                                {
+                                    if (bool.Parse(Session["UserAccessViewAccess"].ToString()) == true)
+                                    {
+                                         <div class="col-md-3" style="padding-left: 0px !important; padding-right: 0px !important; width: 31px;float:left">
+                                            <button id="btnEdit" type="button" onclick="EditSelectedID('@dr["fldAccessName"]')" data-toggle="tooltip" title="View" class="glyphicon glyphicon-eye-open" style="color:#055808"></button>
+                                        </div>
+                                    }
+                                    else
+                                    {
+                                         <div class="col-md-3" style="padding-left: 0px !important; padding-right: 0px !important; width: 31px;float:left">
+                                            <button id="btnEdit" type="button" data-toggle="tooltip" title="You don't have access to edit records" class="glyphicon glyphicon-pencil button disabled" style="color:#808080"></button>
+                                        </div>
+                                    }
+
+                                }
+
+                                @if (bool.Parse(Session["UserAccessDeleteAccess"].ToString()) == true)
+                                {
+                                     <div class="col-md-3" style="padding-left: 0px !important; padding-right: 0px !important; width: 31px;float:left">
+                                        <button id="btnDelete" type="button" data-toggle="modal" onclick="SelectIDDelete('@dr["fldAccessName"]')" data-target=".UpdateModal" title="Delete" class="glyphicon glyphicon-remove" style="color:#650707"></button>
+                                    </div>
+                                }
+                                else
+                                {
+                                     <div class="col-md-3" style="padding-left: 0px !important; padding-right: 0px !important; width: 31px;float:left">
+                                        <button id="btnDelete" type="button" data-toggle="modal" title="You don't have access to delete records" class="glyphicon glyphicon-remove button disabled" s style="color:#808080"></button>
+                                    </div>
+                                }
+
+
+
+
+                            </div>
+                        </td>
+
+                    </tr>
+                }
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="12">
+                        <div class="col-md-1" style="margin-bottom:8px;">
+                            @Html.DropDownListFor(model => model.fldPageLimit, new SelectList(Model.cbPageLimit, "Id", "Name"), new { @Title = "View", @style = "width:70px;height:30px;", @class = "dropdown-input", onchange = "this.form.submit()" })
+                        </div>
+                        <div class="col-md-3" style="padding-left: 0px; border:solid;text-align:center; border-color:whitesmoke">
+                            @if (Model.fldPageNo > 1)
+                            {
+                                <input name="fldPageCommand" value="<< Previous" type="submit" onclick="document.forms[0].submit()" style="min-width: 93px; padding: 0;border: none;background: none; color:darkblue" />
+                            }
+                            else
+                            {
+                                <input name="fldPageCommand" value="<< Previous" type="submit" onclick="document.forms[0].submit()" style="min-width: 93px; padding: 0;border: none;background: none; color:#808080" disabled />
+                            }
+
+                            ..  @Html.ValueFor(model => model.fldPageNo) / @ViewBag.Pagging  ..
+                            @if (Model.fldPageNo < @ViewBag.Pagging)
+                            {
+                                <input name="fldPageCommand" value="Next >>" type="submit" onclick="document.forms[0].submit()" style="min-width: 93px; padding: 0;border: none;background: none; color:darkblue" />
+                            }
+                            else
+                            {
+                                <input name="fldPageCommand" value="Next >>" type="submit" onclick="document.forms[0].submit()" style="min-width: 93px; padding: 0;border: none;background: none; color:#808080" disabled />
+                            }
+
+                        </div>
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+    <br />
+    <div class="SubListItems col-md-12" style="text-align:right; font-size:17px;">
+        Total Record(s): @ViewBag.RecordCount
+    </div>
+    <br />
+    }
+    else
+    {
+        <hr />
+        <table style="width:100%;">
+            <tbody>
+                <tr>
+                    <td align="center">
+                        <img id="__contentPlaceHolder___leave_Repeater1_Image3" src="~/Images/empty.png" style="width:60px;">
+                    </td>
+                </tr>
+                <tr>
+                    <td style="vertical-align:top;padding-top:9px;color:#969696" align="center">
+                        No Record Found
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+
+    }
+
+
+
+}
+
+
+<div class="modal fade UpdateModal" id="basic" tabindex="-1" role="basic" aria-hidden="true" data-backdrop="static" data-keyboard="false" style="display: none;">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                <div class="InfoIcon"><h4 class="modal-title">Delete Confirmation</h4></div>
+                
+            </div>
+            <div class="modal-body">
+                Are you sure you want to delete the selected record?
+            </div>
+
+
+            <div class="modal-footer">
+                <button id="btnDeleteProceed" name="btnDeleteProceed" type="button" class="btn btn-primary" onclick="DeleteSelectedID()">Yes</button>
+                <button data-dismiss="modal" type="button" class="btn btn-primary">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+<div class="modal fade SystemMsgErrorModal" id="basic" tabindex="-1" role="basic" aria-hidden="true" data-backdrop="static" data-keyboard="false" style="display: none;">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header modal-header-warning">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                <div class="ErrorIcon"><h4 class="modal-title">System Message</h4></div>
+            </div>
+            <div class="modal-body">
+                <div>@Html.ValidationSummary(true)</div>
+            </div>
+            <div class="modal-footer">
+                <button data-dismiss="modal" type="button" class="btn btn-warning">Ok</button>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade SystemMsgSuccessModal" id="basic" tabindex="-1" role="basic" aria-hidden="true" data-backdrop="static" data-keyboard="false" style="display: none;">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header modal-header-success ">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                <div class="CheckIcon"><h4 class="modal-title">System Message</h4></div>
+            </div>
+            <div class="modal-body">
+                <div class="modalmessage"></div>
+            </div>
+            <div class="modal-footer">
+                <button data-dismiss="modal" type="button" class="btn btn-success" onclick="location.href='@Url.Action("List", "UserAccess")'">Ok</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+
+
+    function EditSelectedID(id) {       
+        $.ajax({
+            Type: "POST",
+            ContentType: "application/json;charset=utf-8",
+            url: '@Url.Action("GetEditRecord", "UserAccess")',
+            data: { fldAccessName:id },
+            success: function (data) {
+                location.href = '@Url.Action("Edit", "UserAccess")';
+            },
+            error: function () {
+                alert("Error");
+            }
+
+        });
+
+
+    }
+
+    function SelectIDDelete(id) {        
+        document.getElementById("btnDeleteProceed").value = id;
+    
+    }
+
+    function DeleteSelectedID() {
+       
+        $.ajax({
+            url: "/UserAccess/Delete/",
+            dataType: "json",
+            cache: false,
+            type: 'GET',
+            data: { fldAccessName: document.getElementById("btnDeleteProceed").value },
+            success: function (result) {
+                $('.UpdateModal').modal('hide');
+                $('.modalmessage').text(result.msg);
+                $('.SystemMsgSuccessModal').modal('show');
+            }
+        });
+    }
+
+
+
+
+</script>
+
+
+<script type="text/javascript">
+   
+   
+    document.getElementById('rectable').style.display = "table";
+
+    function show_hide_column(col_no, do_show) {
+        var rows = document.getElementById('Records').rows;
+        for (var row = 0; row < rows.length; row++) {
+            var cols = rows[row].cells;
+            if (col_no >= 0 && col_no < cols.length) {
+                cols[col_no].style.display = do_show ? '' : 'none';
+            }
+        }
+        document.getElementById(col_no + 1).style.display = do_show ? '' : 'none';
+    }
+
+
+    function sortTable(n) {
+        var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+        table = document.getElementById("Records");
+        switching = true;
+        //Set the sorting direction to ascending:
+        dir = "asc";
+        /*Make a loop that will continue until
+        no switching has been done:*/
+        while (switching) {
+            //start by saying: no switching is done:
+            switching = false;
+            rows = table.getElementsByTagName("TR");
+            /*Loop through all table rows (except the
+            first, which contains table headers):*/
+            for (i = 0; i < (rows.length - 1) ; i++) {
+                //start by saying there should be no switching:
+                shouldSwitch = false;
+                /*Get the two elements you want to compare,
+                one from current row and one from the next:*/
+                x = rows[i].getElementsByTagName("TD")[n];
+                y = rows[i + 1].getElementsByTagName("TD")[n];
+                /*check if the two rows should switch place,
+                based on the direction, asc or desc:*/
+                if (dir == "asc") {
+                    if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+                        //if so, mark as a switch and break the loop:
+                        shouldSwitch = true;
+                        break;
+                    }
+                } else if (dir == "desc") {
+                    if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+                        //if so, mark as a switch and break the loop:
+                        shouldSwitch = true;
+                        break;
+                    }
+                }
+            }
+            if (shouldSwitch) {
+                /*If a switch has been marked, make the switch
+                and mark that a switch has been done:*/
+                rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                switching = true;
+                //Each time a switch is done, increase this count by 1:
+                switchcount++;
+            } else {
+                /*If no switching has been done AND the direction is "asc",
+                set the direction to "desc" and run the while loop again.*/
+                if (switchcount == 0 && dir == "asc") {
+                    dir = "desc";
+                    switching = true;
+                }
+            }
+        }
+       
+    }
+
+</script>

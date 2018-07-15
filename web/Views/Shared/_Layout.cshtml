@@ -1,0 +1,265 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="Icon" href="~/Images/logo2.png" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=.8">
+    <title>TARA! LRT</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+    <script src="@Url.Content("~/Scripts/jquery-ui.min.js")" type="text/javascript"></script>
+    <link href="@Url.Content("~/Content/jquery-ui.min.css")" rel="stylesheet" type="text/css" />   
+    <link href="@Url.Content("~/Content/button.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/textbox.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/chatbox.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/font-awesome.css")" rel="stylesheet" type="text/css" />
+
+
+
+    <script src="/Scripts/jquery-1.10.2.js" type="text/javascript"></script>
+ 
+
+   @* <script src="/Scripts/bootstrap.js" type="text/javascript"></script>*@
+
+    <style>
+        .dropdown-submenu {
+            position: relative;
+        }
+
+            .dropdown-submenu .dropdown-menu {
+                top: 0;
+                left: 100%;
+                margin-top: -1px;
+            }
+    </style>
+
+</head>
+<body style="background-color:#050329; ">
+    @if (Session["_intCurrentID"] != null)
+    {
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    @*| @Html.ActionLink("Application name", "Index", "Home", null, new { @class = "navbar-brand" })*@
+                    <img src="~/Images/logo2.png" width="70" height="50" style="margin-top:0px" />
+                </div>
+
+                <div class="navbar-collapse collapse">
+
+                @if (Session["_intCurrentID"] != null)
+                {
+                    <ul class="nav navbar-nav">
+
+                        <li class="Dashboard">
+                            <a href="@Url.Action("Index", "Home")"><div style="padding:0px;"><img style="margin-right:5px;" src="@(Session["CurrentMenu"] == "Dashboard" ? "/Images/menuarrow.png" : "")" />Dashboard</div></a>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle LRT" data-toggle="dropdown"><div style="padding:0px;"><img style="margin-right:5px;" src="@(Session["CurrentMenu"] == "LRT" ? "/Images/menuarrow.png" : "")" />LRT Management<span class="caret"></span></div></a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    @Html.ActionLink("Station Registration and RFID Assigning", "List", "Type")                                                                      
+                                </li>
+                            <li>@Html.ActionLink("Train Registration and Tagging", "List", "Type")</li>
+                            <hr />
+                            <li>@Html.ActionLink("Announcement/Notification", "List", "Type")</li>
+                            <hr />
+                            <li>@Html.ActionLink("Reward Policy Setup", "List", "Type")</li>
+                            <li>@Html.ActionLink("Reward Convertion", "List", "Type")</li>
+                        </ul>
+
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle Commuter" data-toggle="dropdown"><div style="padding:0px;"><img style="margin-right:5px;" src="@(Session["CurrentMenu"] == "Commuter" ? "/Images/menuarrow.png" : "")" />Commuter Management<span class="caret"></span></div></a>
+                            <ul class="dropdown-menu">
+                                <li>@Html.ActionLink("Accounts Monitoring", "List", "Type")</li>
+                                <hr />
+                                <li>@Html.ActionLink("Travel History", "List", "Type")</li>
+                                <li>@Html.ActionLink("Rewards Monitoring", "List", "Type")</li>
+                                <hr />
+                                <li>@Html.ActionLink("Communter Feedback", "List", "Type")</li>
+                            </ul>
+                           
+
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle Agency" data-toggle="dropdown"><div style="padding:0px;"><img style="margin-right:5px;" src="@(Session["CurrentMenu"] == "Agency" ? "/Images/menuarrow.png" : "")" />Agency Management<span class="caret"></span></div></a>
+                            <ul class="dropdown-menu">
+                                <li>@Html.ActionLink("Agency Registration", "List", "Type")</li>
+                                <hr />
+                                <li>@Html.ActionLink("Ads Spots Monitoring and Assigining", "List", "Type")</li>
+                                <li>@Html.ActionLink("Ads Placement Monitoring and Approval", "List", "Type")</li>
+                                <hr />
+                                <li>@Html.ActionLink("Ads Rewards Monitoring", "List", "Type")</li>
+                            </ul>
+
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle Setting" data-toggle="dropdown"><div style="padding:0px;"><img style="margin-right:5px;" src="@(Session["CurrentMenu"] == "Setting" ? "/Images/menuarrow.png" : "")" />Setting<span class="caret"></span></div></a>
+                            <ul class="dropdown-menu">
+                                <li>@Html.ActionLink("User Registration", "List", "Type")</li>
+                                <li>@Html.ActionLink("Access Level", "List", "Type")</li>
+                                <hr />
+                                <li>@Html.ActionLink("RFID Reader Registraton & Configuration", "List", "RfidSetting")</li>
+                                
+                            </ul>
+
+                        </li>
+                      
+                        <div class="menudivider" style="display:none"></div>
+                        <li><a href="@Url.Action("About", "Home")"><div style="padding:0px;"><img style="margin-right:5px;" src="@(Session["CurrentMenu"] == "About" ? "/Images/menuarrow.png" : "")" />About</div></a></li>
+
+                        @*<li>@Html.ActionLink("Contact", "Contact", "Home")</li>*@
+
+                    </ul>
+                }
+
+                    @Html.Partial("_LoginPartial")
+
+                 
+                </div>
+            </div>
+        </div>
+
+            <div class="container  body-content" style="background-color:white; border-radius:20px;">
+                @RenderBody()
+                <br />
+                <div style="background:linear-gradient(to bottom left, #6c5323d9  0%, #050329 81%); height:5px" ></div>
+                <div class="panel panel-default bodyLive"></div>
+                <footer>
+                    <p>&copy;TARA! LRT @DateTime.Now.Year <label id="CurrentTime"></label></p>
+                </footer>
+            </div>
+
+
+
+
+            }
+            else
+            {
+            @RenderBody()
+            @Html.Partial("_LoginPartial")
+            }
+
+
+            @Scripts.Render("~/bundles/jquery")
+            @Scripts.Render("~/bundles/bootstrap")
+            @RenderSection("scripts", required: false)
+
+</body>
+</html>
+
+
+<script>
+$(document).ready(function(){
+  $('.dropdown-submenu a.test').on("click", function(e){
+    $(this).next('ul').toggle();
+    e.stopPropagation();
+    e.preventDefault();
+  });
+});
+</script>
+
+<script type="text/javascript">
+
+    KeepMeAlive();
+    function KeepMeAlive()
+    {
+
+        setTimeout(function () {
+
+            //$.ajax({
+            //    url: "/Account/CheckStillAlive/",
+            //    type: 'POST',
+            //    success: function (result) {
+            //    }
+            //});
+
+                $.ajax({
+                    url: "/Home/GetTime/",
+                    dataType: "json",
+                    cache: false,
+                    type: 'GET',
+                    success: function (result) {
+                        if (result.Success) {
+                            document.getElementById('CurrentTime').innerHTML = '( ' + result.msg + ' )';
+                            KeepMeAlive();
+                        } else {
+                            if (result.msg == "")
+                            {
+                                window.location.href = '@Url.Action("Index", "Home")';
+                            }
+
+                        }
+                    }
+                });
+
+
+
+            }, 60000);
+
+    }
+
+    getscreenresolutionMenu();
+
+    window.onresize = function () {
+
+        if ($(window).width() < 1160 && sessionStorage.getItem("Screenresize") == "0" || sessionStorage.getItem("Screenresize") ==  null)
+        {
+            sessionStorage.setItem("Screenresize", "1");
+            location.reload();
+        }
+        if ($(window).width() > 1160 && sessionStorage.getItem("Screenresize") == "1") {
+            sessionStorage.setItem("Screenresize", "0");
+            location.reload();
+        }
+        //alert();
+        //getscreenresolutionMenu();
+        //getscreenresolution();
+        //Itemgetscreenresolution()
+        //Attachmentgetscreenresolution();
+    }
+
+
+    function getscreenresolutionMenu() {
+
+        if ($(window).width() < 1160) {
+            //$('.Dashboard').attr('style', 'font-size:large !important;text-decoration: underline; ');
+            //$('.ItemProfile').attr('style', 'font-size:large !important;text-decoration: underline; ');
+            //$('.InventoryManagement').attr('style', 'font-size:large !important;text-decoration: underline; ');
+            //$('.TrackingManagement').attr('style', 'font-size:large !important;text-decoration: underline; ');
+            //$('.TransportManagement').attr('style', 'font-size:large !important;text-decoration: underline; ');
+            //$('.Reports').attr('style', 'font-size:large !important;text-decoration: underline; ');
+            //$('.Settings').attr('style', 'font-size:large !important;text-decoration: underline; ');
+            $('.menudivider').attr('style', 'background-color:gray;height:2px;');
+
+        }
+        else {
+            //$('.Dashboard').attr('style', '');
+            //$('.ItemProfile').attr('style', '');
+            //$('.InventoryManagement').attr('style', '');
+            //$('.TrackingManagement').attr('style', '');
+            //$('.TransportManagement').attr('style', '');
+            //$('.Reports').attr('style', '');
+            //$('.Settings').attr('style', '');
+            $('.menudivider').attr('style', 'display: none;');
+
+        }
+
+
+    }
+
+
+
+
+
+</script>
+
+
+

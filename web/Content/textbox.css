@@ -1,0 +1,266 @@
+﻿.textbox
+{
+         
+  display: block;
+  width: 100%;
+  height: 34px;
+  padding: 6px 12px;    
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #555;
+  /*background-color: #fff;*/
+  border: 1px solid #050329;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+  -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+  -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+  transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;    
+  resize:none;
+  border-radius: 4px !important;
+}
+
+.TextDisabled {
+     background-color: whitesmoke;
+}
+.DatePicker {
+    display: block;
+    width: 100%;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    border: 1px solid #050329;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    resize: none;
+    border-radius: 4px !important;
+    padding-left: 30px;
+    background-image: url(/images/calendar.png);
+    background-repeat: no-repeat;
+    background-position: 5px;
+    background-size: 20px 20px;
+}
+
+.Date_Picker {
+    display: block;
+    width: 100%;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    border: 1px solid #050329;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    resize: none;
+    border-radius: 4px !important;
+    padding-left: 30px;
+    background: url(/images/calendar.png) no-repeat;
+    background-position: 5px;
+    background-size: 20px 20px;
+}
+
+.textbox:focus
+{
+    outline:none;
+}
+.multiline
+{
+    height:80px
+}
+.textbox-search
+{
+         
+  display: block;
+  width: 100%;
+  height: 34px;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #555;
+  background-color: #fff;
+  border: 1px solid #050329;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+  -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+  -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+  transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;    
+  resize:none;
+  border-radius: 4px !important;
+  padding-left:30px;
+  background: url(/images/search.png) no-repeat;
+  background-position:5px;
+}
+
+.dropdown-input{
+        display: block;
+    width: 100%;
+    height: 34px;
+    padding: 6px 12px;
+    border: 1px solid #050329;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    resize: none;
+    border-radius: 4px !important;
+}
+
+.Time_Picker {
+    display: block;
+    width: 100%;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    border: 1px solid #050329;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    resize: none;
+    border-radius: 4px !important;
+    padding-left: 30px;
+    background-image: url(/images/Timepic.png);
+    background-repeat: no-repeat;
+    background-position: 5px;
+    background-size: 15px 15px;
+}
+
+.checkmark {
+    display:inline-block;
+    width: 22px;
+    height:22px;
+    -ms-transform: rotate(45deg); /* IE 9 */
+    -webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
+    transform: rotate(45deg);
+}
+.checkmark2 {
+    display:inline-block;
+    width: 10px;
+    height:10px;
+    -ms-transform: rotate(45deg); /* IE 9 */
+    -webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
+    transform: rotate(45deg);
+}
+.checkmark_circle2 {
+    position: absolute;
+    width:10px;
+    height:10px;
+    background-color: green;
+    border-radius:11px;
+    left:0;
+    top:0;
+}
+.checkmark_circle {
+    position: absolute;
+    width:22px;
+    height:22px;
+    background-color: green;
+    border-radius:11px;
+    left:0;
+    top:0;
+}
+
+
+.checkmark_stem {
+    position: absolute;
+    width:3px;
+    height:9px;
+    background-color:#fff;
+    left:11px;
+    top:6px;
+}
+.checkmark_stem2 {
+    position: absolute;
+    width:1px;
+    height:6px;
+    background-color:#fff;
+    left:11px;
+    top:6px;
+}
+.checkmark_kick {
+    position: absolute;
+    width:3px;
+    height:3px;
+    background-color:#fff;
+    left:8px;
+    top:12px;
+}
+.checkmark_kick2 {
+    position: absolute;
+    width:3px;
+    height:3px;
+    background-color:#fff;
+    left:8px;
+    top:12px;
+}
+
+#orangeBox {
+    background: #f90;
+    color: #fff;
+    font-family: 'Helvetica', 'Arial', sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+    text-align: center;
+    width: 15px;
+    height: 15px;
+    border-radius: 33px;
+}
+
+#orangeBox2 {
+    background: #f90;
+    color: #fff;
+    font-family: 'Helvetica', 'Arial', sans-serif;
+    font-size: 7px;
+    font-weight: bold;
+    text-align: center;
+    width: 15px;
+    height: 15px;
+    border-radius: 33px;
+}
+
+#GreenBox {
+    background: green;
+    color: #fff;
+    font-family: 'Helvetica', 'Arial', sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+    text-align: center;
+    width: 15px;
+    height: 15px;
+    border-radius: 33px;
+}
+
+#GreenBox2 {
+    background: green;
+    color: #fff;
+    font-family: 'Helvetica', 'Arial', sans-serif;
+    font-size: 7px;
+    font-weight: bold;
+    text-align: center;
+    width: 10px;
+    height: 10px;
+    border-radius: 33px;
+}
+
+.blink_me {
+  animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
